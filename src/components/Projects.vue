@@ -12,7 +12,7 @@
       <div class="grid md:grid-cols-2 gap-4 md:gap-10 mb-5">
         <div class="">
           <img
-            class="h-[320px] w-full rounded-md"
+            class="h-[200px] md:h-[320px] w-full rounded-md"
             src="@/assets/images/togavision.png"
             alt=""
           />
@@ -29,7 +29,7 @@
         </div>
         <div class="">
           <img
-            class="h-[320px] w-full rounded-md"
+            class="h-[200px] md:h-[320px] w-full rounded-md"
             src="@/assets/images/evolvehq.png"
             alt=""
           />

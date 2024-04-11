@@ -9,7 +9,7 @@
       <p class="text-sm sm:text-base mt-2 mb-5">
         Crafting exceptional web and digital experiences
       </p>
-      <div class="grid md:grid-cols-2 gap-4 md:gap-10 mb-5">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-10 mb-5">
         <ProjectCard
           v-for="(project, index) in projects"
           :key="index"

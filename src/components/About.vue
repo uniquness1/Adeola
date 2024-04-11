@@ -7,7 +7,7 @@
         About Me
       </h2>
       <p
-        class="dark:text-slate-300 text-slate-800 text-xl max-w-4xl mb-5 md:mb-10"
+        class="dark:text-slate-300 text-slate-800 text-base sm:text-xl max-w-4xl my-5 md:mb-10"
       >
         I'm a Developer with a handful of experience developing beautiful and
         easy-to-use websites and apps. I'm great with HTML, CSS, JavaScript and
@@ -18,38 +18,42 @@
         even better and excited to use my skills and creativity to build
         something amazing!
       </p>
-      <div class="flex flex-col max-h-max h-full">
-        <div>
+    </div>
+  </section>
+  <section
+    class="border-b max-w-7xl w-full mx-auto px-4 py-5 sm:py-10 overflow-hidden"
+  >
+    <div class="flex flex-col max-h-max h-full">
+      <div>
+        <h2
+          class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800"
+        >
+          Experience
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 mt-5">
+        <div
+          v-for="(experience, index) in experiences"
+          :key="index"
+          class="max-w-max pb-2"
+        >
           <h2
-            class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800"
+            class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800"
           >
-            Experience
+            {{ experience.company }} -
+            <span class="font-normal">{{ experience.role }}</span>
           </h2>
-        </div>
-        <div class="grid md:grid-cols-2 gap-4 mt-5">
-          <div
-            v-for="(experience, index) in experiences"
-            :key="index"
-            class="max-w-max pb-2"
-          >
-            <h2
-              class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800"
-            >
-              {{ experience.company }} -
-              <span class="font-normal">{{ experience.role }}</span>
-            </h2>
-            <div>
-              <span class="dark:text-slate-300 text-slate-800">{{
-                experience.duration
-              }}</span>
-              <span class="dark:text-slate-300 text-slate-800"
-                >&nbsp;- {{ experience.type }}</span
-              >
-            </div>
+          <div>
             <span class="dark:text-slate-300 text-slate-800">{{
-              experience.location
+              experience.duration
             }}</span>
+            <span class="dark:text-slate-300 text-slate-800"
+              >&nbsp;- {{ experience.type }}</span
+            >
           </div>
+          <span class="dark:text-slate-300 text-slate-800">{{
+            experience.location
+          }}</span>
         </div>
       </div>
     </div>

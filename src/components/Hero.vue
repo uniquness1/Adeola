@@ -13,11 +13,11 @@
           Devel<span class="animated-letter">o</span>per
         </h1>
       </div>
-      <div class="grid md:grid-cols-2 gap-10 justify-end w-full my-10">
-        <div></div>
+      <div class="grid lg:grid-cols-2 gap-10 justify-end w-full my-5 md:my-10">
+        <div class="hidden lg:block"></div>
         <div>
           <p
-            class="text-left dark:text-slate-300 text-slate-800 text-xl max-w-2xl mb-4"
+            class="lg:text-left dark:text-slate-300 text-slate-800 text-base sm:text-xl max-w-2xl w-full mb-4"
           >
             I'm a Developer with a handful of experience developing beautiful
             and easy-to-use websites and apps. I'm great with HTML, CSS,

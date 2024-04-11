@@ -1,8 +1,8 @@
 <template>
-  <div class="h-[525px] flex flex-col justify-between">
+  <div class="md:h-[525px] flex flex-col justify-between">
     <img
       :src="project.imageUrl"
-      class="h-[320px] w-full rounded-md"
+      class="h-[200px] sm:h-[320px] w-full rounded-md"
       :alt="project.name"
     />
     <h2
@@ -11,7 +11,9 @@
       <a :href="project.websiteUrl" target="_blank">{{ project.name }}</a>
     </h2>
     <p class="text-sm sm:text-base">{{ project.description }}</p>
-    <div class="mt-4 flex items-center gap-2">
+    <div
+      class="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-2"
+    >
       <p
         v-for="(tag, index) in project.tag"
         :key="index"
