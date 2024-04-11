@@ -1,0 +1,102 @@
+<template>
+  <section class="w-full border-b">
+    <div class="max-w-7xl w-full mx-auto px-4 py-5 sm:py-10 overflow-hidden">
+      <h2
+        class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
+      >
+        About Me
+      </h2>
+      <p
+        class="dark:text-slate-300 text-slate-800 text-xl max-w-4xl mb-5 md:mb-10"
+      >
+        I'm a Developer with a handful of experience developing beautiful and
+        easy-to-use websites and apps. I'm great with HTML, CSS, JavaScript and
+        using modern tools like React, VueJs as well as content management
+        systems(CMS) like Wordpress and Drupal to make things run smoothly and
+        work on any device. I enjoy and thrive working with others to create the
+        best possible experiences, and I'm always learning new things to make me
+        even better and excited to use my skills and creativity to build
+        something amazing!
+      </p>
+      <div class="flex flex-col max-h-max h-full">
+        <div>
+          <h2
+            class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800"
+          >
+            Experience
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 mt-5">
+          <div
+            v-for="(experience, index) in experiences"
+            :key="index"
+            class="max-w-max pb-2"
+          >
+            <h2
+              class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800"
+            >
+              {{ experience.company }} -
+              <span class="font-normal">{{ experience.role }}</span>
+            </h2>
+            <div>
+              <span class="dark:text-slate-300 text-slate-800">{{
+                experience.duration
+              }}</span>
+              <span class="dark:text-slate-300 text-slate-800"
+                >&nbsp;- {{ experience.type }}</span
+              >
+            </div>
+            <span class="dark:text-slate-300 text-slate-800">{{
+              experience.location
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+const experiences = [
+  {
+    company: "Pixel Anchor",
+    role: "Web Developer",
+    duration: "January 2024 - Present",
+    type: "Contract, Remote",
+    location: "Lagos state",
+  },
+  {
+    company: "EvolveHQ",
+    role: "Web Developer",
+    duration: "November 2023 - Present",
+    type: "Contract, Remote",
+    location: "Lagos state",
+  },
+  {
+    company: "Wild Fusions Limited",
+    role: "Web Developer",
+    duration: "May 2023 - October 2023",
+    type: "Contract, Onsite",
+    location: "Ikoyi, Lagos state",
+  },
+  {
+    company: "Kinplus Technologies",
+    role: "Frontend Developer",
+    duration: "March 2022 - April 2023",
+    type: "Fulltime, Hybrid",
+    location: "Ado Ekiti, Ekiti state",
+  },
+  {
+    company: "Kinplus Technologies",
+    role: "Frontend Developer",
+    duration: "October 2021 - March 2022",
+    type: "Internship, Onsite",
+    location: "Ado Ekiti, Ekiti state",
+  },
+];
+</script>
+<style scoped>
+exp:not(last-child) {
+  border-bottom: 1px solid #ccc;
+}
+</style>
