@@ -2,11 +2,17 @@
   <section class="w-full border-b">
     <div class="max-w-7xl w-full mx-auto px-4 py-5 sm:py-10 overflow-hidden">
       <h2
+        data-aos="fade-zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-sine"
         class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
       >
         About Me
       </h2>
       <p
+        data-aos="fade-zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-sine"
         class="dark:text-slate-300 text-slate-800 text-base sm:text-xl max-w-4xl my-5 md:mb-10"
       >
         I'm a Developer with a handful of experience developing beautiful and
@@ -26,6 +32,9 @@
     <div class="flex flex-col max-h-max h-full">
       <div>
         <h2
+          data-aos="fade-zoom-in"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-sine"
           class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800"
         >
           Experience
@@ -38,12 +47,19 @@
           class="max-w-max pb-2"
         >
           <h2
+            data-aos="fade-zoom-in"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine"
             class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800"
           >
             {{ experience.company }} -
             <span class="font-normal">{{ experience.role }}</span>
           </h2>
-          <div>
+          <div
+            data-aos="fade-zoom-in"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine"
+          >
             <span class="dark:text-slate-300 text-slate-800">{{
               experience.duration
             }}</span>
@@ -51,9 +67,13 @@
               >&nbsp;- {{ experience.type }}</span
             >
           </div>
-          <span class="dark:text-slate-300 text-slate-800">{{
-            experience.location
-          }}</span>
+          <span
+            data-aos="fade-zoom-in"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine"
+            class="dark:text-slate-300 text-slate-800"
+            >{{ experience.location }}</span
+          >
         </div>
       </div>
     </div>
@@ -61,6 +81,9 @@
 </template>
 
 <script setup>
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const experiences = [
   {
     company: "Pixel Anchor",

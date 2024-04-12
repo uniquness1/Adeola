@@ -4,11 +4,17 @@
       <div class="flex flex-col w-full">
         <h1
           class="font-bold max-w-lg sm:max-w-7xl w-full text-6xl sm:text-7xl md:text-8xl xl:text-9xl uppercase dark:text-slate-300 text-slate-800"
+          data-aos="fade-zoom-in"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-sine"
         >
           Fr<span class="animated-letter">o</span>nt-End
         </h1>
         <h1
           class="font-bold max-w-lg sm:max-w-7xl w-full text-6xl sm:text-7xl md:text-8xl xl:text-9xl uppercase dark:text-slate-300 text-slate-800 text-right"
+          data-aos="fade-zoom-in"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-sine"
         >
           Devel<span class="animated-letter">o</span>per
         </h1>
@@ -18,6 +24,9 @@
         <div>
           <p
             class="lg:text-left dark:text-slate-300 text-slate-800 text-base sm:text-xl max-w-2xl w-full mb-4"
+            data-aos="fade-zoom-in"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine"
           >
             I'm a Developer with a handful of experience developing beautiful
             and easy-to-use websites and apps. I'm great with HTML, CSS,
@@ -31,6 +40,9 @@
           <router-link
             class="text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block max-w-max button"
             to="/about"
+            data-aos="fade-zoom-in"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-sine"
             >About Me</router-link
           >
         </div>
@@ -42,6 +54,9 @@
 
 <script setup>
 import Test from "./Test.vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 </script>
 
 <style scoped>

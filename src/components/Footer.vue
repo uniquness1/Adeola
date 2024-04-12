@@ -1,7 +1,10 @@
 <template>
   <footer>
     <h2
-      class="font-bold text-3xl md:text-8xl text-center uppercase dark:text-slate-300 text-slate-800"
+      data-aos="fade-zoom-in"
+      data-aos-duration="1500"
+      data-aos-easing="ease-in-sine"
+      class="font-bold text-3xl md:text-8xl text-center uppercase dark:text-slate-300 text-slate-800 pt-5"
     >
       Adeola
     </h2>
@@ -11,7 +14,7 @@
       <div>
         <p>Designed with ❤ &nbsp; Adeola &copy; {{ currentYear }}</p>
       </div>
-      <SocialmediaVue />
+      <SocialMedia />
       <p>{{ currentDate }} &nbsp; {{ currentTime }}</p>
     </div>
   </footer>
@@ -20,6 +23,9 @@
 <script setup>
 import { ref } from "vue";
 import SocialMedia from "./Socialmedia.vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const currentYear = ref(new Date().getFullYear());
 const currentDate = ref(getCurrentDate());
 const currentTime = ref(getCurrentTime());

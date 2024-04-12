@@ -2,11 +2,19 @@
   <section class="w-full border-b">
     <div class="max-w-7xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
       <h2
+        data-aos="fade-zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-sine"
         class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
       >
         Projects
       </h2>
-      <p class="text-sm sm:text-base mt-2 mb-5">
+      <p
+        data-aos="fade-zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-sine"
+        class="text-sm sm:text-base mt-2 mb-5"
+      >
         Crafting exceptional web and digital experiences
       </p>
       <div class="grid md:grid-cols-2 gap-8 md:gap-10 mb-5">
@@ -23,16 +31,19 @@
 <script setup>
 import { ref } from "vue";
 import ProjectCard from "./ProjectCard.vue";
-import TogaVision from "@/assets/images/togavision.png";
-import EvolveHQ from "@/assets/images/evolvehq.png";
-import Jaics from "@/assets/images/jaics.png";
-import Arts from "@/assets/images/artsandvibes.png";
-import Pixel from "@/assets/images/pixelanchor.png";
-import Digital from "@/assets/images/roidigital.png";
-
+import TogaVision from "@/assets/images/togavision.webp";
+import EvolveHQ from "@/assets/images/evolvehq.webp";
+import Jaics from "@/assets/images/jaics.webp";
+import Arts from "@/assets/images/artsandvibes.webp";
+import Pixel from "@/assets/images/pixelanchor.webp";
+import Digital from "@/assets/images/roidigital.webp";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const projects = ref([
   {
     name: "Toga Vision",
+    alt: "screenshot of togavision website",
     imageUrl: TogaVision,
     websiteUrl: "https://togavision.org",
     description:
@@ -41,6 +52,7 @@ const projects = ref([
   },
   {
     name: "EvolveHq",
+    alt: "screenshot of evolvehq website",
     imageUrl: EvolveHQ,
     websiteUrl: "https://evolvehq.com.ng",
     description:
@@ -49,6 +61,7 @@ const projects = ref([
   },
   {
     name: "Jaics Consulting",
+    alt: "screenshot of jaics consulting website",
     imageUrl: Jaics,
     websiteUrl: "https://jaicsconsulting.com",
     description:
@@ -57,6 +70,7 @@ const projects = ref([
   },
   {
     name: "Arts and Vibes",
+    alt: "screenshot of arts and vibes website",
     imageUrl: Arts,
     websiteUrl: "https://artsandvibes.com",
     description:
@@ -65,6 +79,7 @@ const projects = ref([
   },
   {
     name: "Pixel Anchor",
+    alt: "screenshot of pixelanchor website",
     imageUrl: Pixel,
     websiteUrl: "https://pixelanchor.com",
     description:
@@ -73,6 +88,7 @@ const projects = ref([
   },
   {
     name: "Roi Digital",
+    alt: "screenshot of roi digital website",
     imageUrl: Digital,
     websiteUrl: "https://roidigital.com.ng",
     description:

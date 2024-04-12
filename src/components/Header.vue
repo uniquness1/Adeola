@@ -105,7 +105,7 @@ const toggleMobileMenu = () => {
 const navLinks = [
   { text: "Home", to: "/" },
   { text: "About", to: "/about" },
-  { text: "Portfolio", to: "/portfolio" },
+  { text: "Projects", to: "/projects" },
 ];
 </script>
 
