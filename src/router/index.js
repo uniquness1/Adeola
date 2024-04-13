@@ -16,18 +16,17 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title:
-          " Ajijola Adeola Ayodele - Frontend Developer, Web Developer, Wordpress Developer, Mobile Developer",
+        title: "Ajijola Adeola Ayodele - Frontend web and mobile developer",
         metaTags: [
           {
             name: "description",
             content:
-              "wordpress, wordpress design, wordpress developer, HTML, CSS, Javascript VueJS CMS, TailwindCSS website design, website development, frontend developer, frontend engineer, web developer",
+              "Crafting exceptional web and mobile experiences that is not just visually appealing but also easy to use",
           },
           {
             property: "og:description",
             content:
-              "wordpress, wordpress design, wordpress developer, HTML, CSS, Javascript VueJS CMS, TailwindCSS website design, website  development, frontend developer, frontend engineer, web developer",
+              "Crafting exceptional web and mobile experiences that is not just visually appealing but also easy to use",
           },
         ],
       },
@@ -38,17 +37,17 @@ const router = createRouter({
       component: () => import("../views/PortfolioView.vue"),
       meta: {
         title:
-          "Projects - Ajijola Adeola Ayodele - Frontend Developer, web Developer Wordpress Developer, Mobile Developer",
+          "Projects - Ajijola Adeola Ayodele - Frontend web and mobile developer",
         metaTags: [
           {
             name: "description",
             content:
-              "Discover Ajijola Adeola Ayodele's projects, each a testament to his creativity and innovation from sleek designs to seamless functionality. Discover projects that have been undertaken by ajijola Adeola Ayodele below.",
+              "Discover Ajijola Adeola Ayodele's projects, each a testament to his creativity and innovation, from sleek designs to seamless functionality.",
           },
           {
             property: "og:description",
             content:
-              "Discover Ajijola Adeola Ayodele's projects, each a testament to his creativity and innovation. From sleek designs to seamless functionality. Discover projects that have been undertaken by Ajijola Adeola Ayodele below.",
+              "Discover Ajijola Adeola Ayodele's projects, each a testament to his creativity and innovation, From sleek designs to seamless functionality.",
           },
         ],
       },
@@ -59,17 +58,17 @@ const router = createRouter({
       component: () => import("../views/AboutView.vue"),
       meta: {
         title:
-          "About Me - Ajijola Adeola Ayodele - Frontend Developer, Web Developer, Wordpress Developer, Mobile Developer",
+          "About Me - Ajijola Adeola Ayodele - Frontend web and mobile developer",
         metaTags: [
           {
             name: "description",
             content:
-              "Discover Ajijola Adeola Ayodele's passion, expertise in frontend development and web develoopment in general. From design prowess to coding finesse, explore Ajijola Adeola Ayodele's creativity and innovative skils",
+              "Discover Ajijola Adeola Ayodele's passion, expertise in frontend mobile and web develoopment in general. From design prowess to coding finesse.",
           },
           {
             Property: "og:description",
             content:
-              "Discover Ajijola Adeola Ayodele's passion, expertise in frontend development and web develoopment in general. From design prowess to coding finesse, explore Ajijola Adeola Ayodele's creativity and innovative skils",
+              "Discover Ajijola Adeola Ayodele's passion, expertise in frontend mobile and web develoopment in general. From design prowess to coding finesse.",
           },
         ],
       },
@@ -80,17 +79,17 @@ const router = createRouter({
       component: () => import("../views/ContactView.vue"),
       meta: {
         title:
-          "Get in touch - Ajijola Adeola Ayodele - Frontend Developer, Web Developer, wordpress Developer, Mobile Developer",
+          "Get in touch - Ajijola Adeola Ayodele - Frontend web and mobile developer",
         metaTags: [
           {
             name: "description",
             content:
-              "Whether you have inquiries, collaboration proposals, or simply want to say hello, this is your medium to reach Ajijola Adeola Ayodele directly. Let's start a conversation today",
+              "Whether you have inquiries, collaboration proposals, or simply want to say hello, Let's start a conversation today",
           },
           {
             property: "og:description",
             content:
-              "Whether you have inquiries, collaboration proposals, or simply want to say hello, this is your medium to reach Ajijola Adeola Ayodele directly. Let's start a conversation today",
+              "Whether you have inquiries, collaboration proposals, or simply want to say hello, Let's start a conversation today",
           },
         ],
       },

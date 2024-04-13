@@ -6,11 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const tools = [
-  { name: "Wordpress", icon: "fa-brands fa-wordpress" },
-  { name: "Vue Js", icon: "fa-brands fa-vuejs" },
-  { name: "Nuxt Js", icon: "fa-brands fa-nuxtjs" },
-  { name: "Tailwind", icon: "fa-brands fa-react" },
-  { name: "Flutter", icon: "fa-brands fa-flutter" },
+  { name: "Wordpress" },
+  { name: "Vue Js" },
+  { name: "Nuxt Js" },
+  { name: "Tailwind" },
+  { name: "Flutter" },
   { name: "React JS" },
 ];
 
@@ -18,20 +18,17 @@ const toolsContainer = ref(null);
 
 onMounted(() => {
   const tools = toolsContainer.value.children;
-  if (!tools.length) return; // Exit if no tools exist
-
-  // Set container width to fit all tools without overflow
+  if (!tools.length) return;
   toolsContainer.value.style.width = `${tools.length * tools[0].offsetWidth}px`;
-
   gsap.from(tools, {
     opacity: 0,
-    x: tools[0].offsetWidth, // Animate from the right side
-    stagger: 0.2, // Stagger the animations
+    x: tools[0].offsetWidth,
+    stagger: 0.2,
     scrollTrigger: {
-      trigger: toolsContainer.value, // Use the container as the trigger
-      start: "top 80%", // Start animation when the container enters the top 80% of the viewport
-      end: "bottom 20%", // End animation when the container leaves the bottom 20% viewport
-      scrub: true, // Scrub animation based on scroll position
+      trigger: toolsContainer.value,
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
       toggleActions: "play none none none",
     },
   });
@@ -58,7 +55,3 @@ onUnmounted(() => {
     </div>
   </main>
 </template>
-
-<style>
-/* Add your CSS styles here */
-</style>

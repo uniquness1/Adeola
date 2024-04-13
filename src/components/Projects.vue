@@ -27,7 +27,7 @@
             data-aos-duration="1500"
             data-aos-easing="ease-in-sine"
           />
-          <h2
+          <h3
             class="font-bold text-3xl uppercase dark:text-slate-300 text-slate-800 my-4"
             data-aos="fade-zoom-in"
             data-aos-duration="1500"
@@ -42,7 +42,7 @@
             >
               Toga Vision
             </a>
-          </h2>
+          </h3>
           <p
             data-aos="fade-zoom-in"
             data-aos-duration="1500"
@@ -63,7 +63,7 @@
             src="@/assets/images/evolvehq.webp"
             alt="screenshot of EvolveHQ website"
           />
-          <h2
+          <h3
             data-aos="fade-zoom-in"
             data-aos-duration="1500"
             data-aos-easing="ease-in-sine"
@@ -78,7 +78,7 @@
             >
               EvolveHq
             </a>
-          </h2>
+          </h3>
           <p
             data-aos="fade-zoom-in"
             data-aos-duration="1500"
@@ -93,7 +93,7 @@
       </div>
       <router-link
         class="text-base max-w-max font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block mb-5 button"
-        to="/portfolio"
+        to="/projects"
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
         data-aos-easing="ease-in-sine"

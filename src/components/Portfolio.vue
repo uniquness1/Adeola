@@ -1,14 +1,14 @@
 <template>
   <section class="w-full border-b">
     <div class="max-w-7xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
-      <h2
+      <h1
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
         data-aos-easing="ease-in-sine"
         class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
       >
         Projects
-      </h2>
+      </h1>
       <p
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
@@ -57,7 +57,7 @@ const projects = ref([
     websiteUrl: "https://evolvehq.com.ng",
     description:
       "Evolve HQ is a pioneering organization dedicated to addressing the pressing challenges faced by Africa in the technology sector. With a mission to empower Africans with cutting-edge skills.",
-    tag: ["Wordpress", "Elementor", "All custom Fields"],
+    tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
     name: "Jaics Consulting",
@@ -66,7 +66,7 @@ const projects = ref([
     websiteUrl: "https://jaicsconsulting.com",
     description:
       "Jaics Consulting Services is an Human resources firm in Lagos State that provides solutions to operational and organizational challenges.",
-    tag: ["Wordpress", "Elementor", "All custom Fields"],
+    tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
     name: "Arts and Vibes",
@@ -75,7 +75,7 @@ const projects = ref([
     websiteUrl: "https://artsandvibes.com",
     description:
       "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes, a dedicated platform that empowers individuals to showcase their crafts.",
-    tag: ["Wordpress", "Elementor", "All custom Fields"],
+    tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
     name: "Pixel Anchor",
@@ -84,7 +84,7 @@ const projects = ref([
     websiteUrl: "https://pixelanchor.com",
     description:
       "At Pixel Anchor, we are driven by the belief that technology can transform businesses and elevate their potential. We have been on a mission to empower organizations with innovative solutions that drive growth, efficiency, and success.",
-    tag: ["Wordpress", "Elementor", "All custom Fields"],
+    tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
     name: "Roi Digital",
@@ -93,7 +93,7 @@ const projects = ref([
     websiteUrl: "https://roidigital.com.ng",
     description:
       "ROI Digital is a digital marketing agency that provides media planning, content development, SEO, and social media strategy services",
-    tag: ["Wordpress", "Elementor", "All custom Fields"],
+    tag: ["Wordpress", "Elementor", "ACF"],
   },
 ]);
 </script>
