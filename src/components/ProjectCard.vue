@@ -1,11 +1,11 @@
 <template>
-  <div class="md:h-[525px] flex flex-col justify-between">
+  <div class="md:h-[400px] flex flex-col justify-between">
     <img
       data-aos="fade-zoom-in"
       data-aos-duration="1500"
       data-aos-easing="ease-in-sine"
       :src="project.imageUrl"
-      class="h-[200px] sm:h-[320px] w-full rounded-md"
+      class="h-[200px] sm:h-[200px] w-full rounded-md"
       :alt="project.alt"
     />
     <h2

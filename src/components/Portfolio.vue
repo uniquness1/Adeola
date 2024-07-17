@@ -17,7 +17,7 @@
       >
         Crafting exceptional web and digital experiences
       </p>
-      <div class="grid md:grid-cols-2 gap-8 md:gap-10 mb-5">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 mb-5">
         <ProjectCard
           v-for="(project, index) in projects"
           :key="index"
@@ -94,6 +94,15 @@ const projects = ref([
     description:
       "ROI Digital is a digital marketing agency that provides media planning, content development, SEO, and social media strategy services",
     tag: ["Wordpress", "Elementor", "ACF"],
+  },
+  {
+    name: "Newspoint Newsblog",
+    alt: "screenshot of newspoint website",
+    imageUrl: "",
+    websiteUrl: "https://newspoint-newsblog.netlify.app",
+    description:
+      "Newspoint is a practice newsblog website that provides latest news across all categories worldwide",
+    tag: ["Vue", "GSAP", "TailwindCSS"],
   },
 ]);
 </script>

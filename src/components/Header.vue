@@ -13,46 +13,62 @@
             {{ link.text }}
           </router-link>
         </template>
+        <div class="flex items-center gap-4 md:gap-6">
+          <input
+            @click="toggleDark()"
+            id="checkbox"
+            type="checkbox"
+            class="switch-checkbox hidden"
+            :class="{ 'dark-mode': isDark }"
+          />
+          <label for="checkbox" class="switch-label">
+            <span
+              v-if="isDark"
+              class="moon block cursor-pointer text-yellow-300 text-2xl"
+              ><i class="fa-solid fa-sun"></i
+            ></span>
+            <span v-else class="sun cursor-pointer block text-2xl"
+              ><i class="fa-solid fa-moon"></i
+            ></span>
+            <div
+              class="switch-toggle"
+              :class="{ 'switch-toggle-checked': isDark }"
+            ></div>
+          </label>
+        </div>
       </nav>
-      <div class="flex items-center gap-4 md:gap-6">
-        <input
-          @click="toggleDark()"
-          id="checkbox"
-          type="checkbox"
-          class="switch-checkbox hidden"
-          :class="{ 'dark-mode': isDark }"
-        />
-        <label for="checkbox" class="switch-label">
-          <span
-            v-if="isDark"
-            class="moon block cursor-pointer text-yellow-300 text-2xl"
-            ><i class="fa-solid fa-sun"></i
-          ></span>
-          <span v-else class="sun cursor-pointer block text-2xl"
-            ><i class="fa-solid fa-moon"></i
-          ></span>
-          <div
-            class="switch-toggle"
-            :class="{ 'switch-toggle-checked': isDark }"
-          ></div>
-        </label>
-        <router-link
-          class="text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full hidden md:block button"
-          to="/contact"
-          >Contact</router-link
-        >
-        <div
-          class="flex flex-col gap-[4px] md:hidden"
-          @click="toggleMobileMenu"
-        >
+      <div class="flex items-center gap-4 md:hidden">
+        <div class="flex flex-col gap-[4px]" @click="toggleMobileMenu">
           <span class="bg-black dark:bg-white block w-3 h-[3px]"></span>
           <span class="bg-black dark:bg-white block w-6 h-[3px]"></span>
           <span
             class="bg-black dark:bg-white block w-3 h-[3px] self-end"
           ></span>
         </div>
+        <div class="flex items-center gap-4 md:gap-6">
+          <input
+            @click="toggleDark()"
+            id="checkbox"
+            type="checkbox"
+            class="switch-checkbox hidden"
+            :class="{ 'dark-mode': isDark }"
+          />
+          <label for="checkbox" class="switch-label">
+            <span
+              v-if="isDark"
+              class="moon block cursor-pointer text-yellow-300 text-2xl"
+              ><i class="fa-solid fa-sun"></i
+            ></span>
+            <span v-else class="sun cursor-pointer block text-2xl"
+              ><i class="fa-solid fa-moon"></i
+            ></span>
+            <div
+              class="switch-toggle"
+              :class="{ 'switch-toggle-checked': isDark }"
+            ></div>
+          </label>
+        </div>
       </div>
-
       <!-- Mobile nav -->
       <transition name="slide">
         <div
@@ -78,12 +94,6 @@
                 >
               </template>
             </nav>
-            <router-link
-              @click="toggleMobileMenu"
-              class="text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 dark:border-white border-black border-solid rounded-full button"
-              to="/contact"
-              >Contact</router-link
-            >
           </div>
         </div>
       </transition>
@@ -106,6 +116,7 @@ const navLinks = [
   { text: "Home", to: "/" },
   { text: "About", to: "/about" },
   { text: "Projects", to: "/projects" },
+  { text: "Contacts", to: "/contact" },
 ];
 </script>
 

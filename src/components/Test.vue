@@ -1,57 +1,81 @@
+<template>
+  <section class="hero-section">
+    <div class="container">
+      <div class="text-content">
+        <div class="t1">
+          <h2>
+            <span
+              >FRONT-END<br />
+              DEVELOPER</span
+            >
+          </h2>
+          <div class="images">
+            <img :alt="images[image]" :src="`/images/${images[image]}`" />
+          </div>
+        </div>
+        <h2>
+          PASSIONATE ABOUT<br />
+          CRAFTING<span> SUPERB</span><br />
+          WEB EXPERIENCES
+        </h2>
+      </div>
+      <div class="scroller">
+        <div class="bg">
+          <div class="circle">
+            <!-- <img
+              alt="arrow down"
+              class="arrowDown"
+              src="@/assets/arrowDown.svg"
+            /> -->
+            <div class="roundText" id="text">
+              <p>SCROLL DOWN FOR MORE . SCROLL DOWN FOR MORE .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+const image = ref(0);
+const images = ref([
+  "classroom.png",
+  "zenpad.png",
+  "tranzaqt.png",
+  "portfolio.png",
+]);
 
-const tools = [
-  { name: "Wordpress" },
-  { name: "Vue Js" },
-  { name: "Nuxt Js" },
-  { name: "Tailwind" },
-  { name: "Flutter" },
-  { name: "React JS" },
-];
-
-const toolsContainer = ref(null);
+function timer() {
+  image.value < 3 ? image.value++ : (image.value = 0);
+  setTimeout(() => timer(), 1300);
+}
 
 onMounted(() => {
-  const tools = toolsContainer.value.children;
-  if (!tools.length) return;
-  toolsContainer.value.style.width = `${tools.length * tools[0].offsetWidth}px`;
-  gsap.from(tools, {
-    opacity: 0,
-    x: tools[0].offsetWidth,
-    stagger: 0.2,
-    scrollTrigger: {
-      trigger: toolsContainer.value,
-      start: "top 80%",
-      end: "bottom 20%",
-      scrub: true,
-      toggleActions: "play none none none",
-    },
-  });
-});
+  const roundText = document.querySelector(".roundText p");
+  roundText.innerHTML = roundText.innerText
+    .split("")
+    .map(
+      (char, i) => `<span style="transform:rotate(${i * 8}deg)">${char}</span>`
+    )
+    .join("");
 
-onUnmounted(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  timer();
+
+  const arrowTl = gsap.timeline({
+    yoyo: true,
+    repeat: -1,
+  });
+
+  arrowTl.fromTo(
+    ".arrowDown",
+    { y: -10 },
+    { y: 10, duration: 1, yoyoEase: true }
+  );
 });
 </script>
 
-<template>
-  <main class="overflow-hidden py-10 max-w-7xl mx-auto hidden md:block">
-    <div ref="toolsContainer" class="tools-container flex overflow-x-auto">
-      <div
-        v-for="(tool, index) in tools"
-        :key="index"
-        class="tool flex items-center gap-10 justify-center"
-      >
-        <span
-          class="text-2xl lg:text-4xl xl:text-5xl px-5 dark:text-slate-300 text-slate-800 font-normal"
-          >{{ tool.name }}</span
-        >
-      </div>
-    </div>
-  </main>
-</template>
+<style></style>
