@@ -1,11 +1,11 @@
 <template>
   <section class="w-full border-b">
-    <div class="max-w-7xl w-full mx-auto px-4 py-5 sm:py-10 overflow-hidden">
+    <div class="max-w-6xl w-full mx-auto px-4 py-5 sm:py-10 overflow-hidden">
       <h1
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
         data-aos-easing="ease-in-sine"
-        class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
+        class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800"
       >
         Contact Me
       </h1>

@@ -1,6 +1,6 @@
 <template>
-  <section class="w-full border-b">
-    <div class="max-w-7xl mx-auto px-4 py-5 sm:pt-10 overflow-hidden">
+  <section class="w-full">
+    <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden border-b">
       <h2
         class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
         data-aos="fade-zoom-in"

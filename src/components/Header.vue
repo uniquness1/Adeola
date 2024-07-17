@@ -1,14 +1,14 @@
 <template>
   <header class="w-full border-b">
-    <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4">
-      <router-link to="/" class="flex flex-col m-0 p-0 text-2xl font-medium">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <router-link to="/" class="flex flex-col text-2xl font-medium">
         Adeola
       </router-link>
-      <nav class="md:flex items-center gap-4 hidden">
+      <nav class="md:flex items-center gap-2 hidden">
         <template v-for="link in navLinks" :key="link.text">
           <router-link
             :to="link.to"
-            class="text-base font-semibold uppercase px-2 nav-links"
+            class="text-sm font-semibold capitalize px-1 nav-links"
           >
             {{ link.text }}
           </router-link>
@@ -24,10 +24,10 @@
           <label for="checkbox" class="switch-label">
             <span
               v-if="isDark"
-              class="moon block cursor-pointer text-yellow-300 text-2xl"
+              class="moon block cursor-pointer text-yellow-300 text-xl"
               ><i class="fa-solid fa-sun"></i
             ></span>
-            <span v-else class="sun cursor-pointer block text-2xl"
+            <span v-else class="sun cursor-pointer block text-xl"
               ><i class="fa-solid fa-moon"></i
             ></span>
             <div

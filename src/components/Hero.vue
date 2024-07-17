@@ -1,6 +1,6 @@
 <template>
   <section class="w-full border-b">
-    <div class="max-w-7xl mx-auto px-4 pt-5 sm:pt-10 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 pt-5 sm:pt-10 overflow-hidden">
       <div
         class="flex flex-col w-full"
         data-aos="fade-zoom-in"
@@ -58,18 +58,9 @@ import Test from "./Test.vue";
 import gsap from "gsap";
 import { ref, onMounted } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { SplitText } from "gsap/SplitText";
-// gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
 const h1FrontEnd = ref(null);
 const h1Developer = ref(null);
-// const h1FrontEndSplit = new SplitText(h1FrontEnd.value, {
-//   type: "chars",
-// });
-
-// const h1DeveloperSplit = new SplitText(h1Developer.value, {
-//   type: "chars",
-// });
 onMounted(() => {
   const tl = gsap.timeline();
   gsap.to(h1FrontEnd.value, {
@@ -99,26 +90,6 @@ onMounted(() => {
       scrub: true,
     },
   });
-  // tl.to(h1FrontEndSplit.chars, {
-  //   duration: 0.5,
-  //   y: "100%",
-  //   ease: "Power2.easeIn",
-  //   stagger: 0.1,
-  // }).to(h1FrontEndSplit.chars, {
-  //   y: 0,
-  //   ease: "Power2.easeOut",
-  //   rotation: Math.random() > 0.5 ? 360 : -360,
-  // });
-  // tl.to(h1DeveloperSplit.chars, {
-  //   duration: 0.5,
-  //   y: "100%",
-  //   ease: "Power2.easeIn",
-  //   stagger: 0.1,
-  // }).to(h1DeveloperSplit.chars, {
-  //   y: 0,
-  //   ease: "Power2.easeOut",
-  //   rotation: Math.random() > 0.5 ? 360 : -360,
-  // });
   gsap.timeline().play();
 });
 </script>

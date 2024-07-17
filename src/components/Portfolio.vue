@@ -1,11 +1,11 @@
 <template>
   <section class="w-full border-b">
-    <div class="max-w-7xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
       <h1
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
         data-aos-easing="ease-in-sine"
-        class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
+        class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800"
       >
         Projects
       </h1>
@@ -17,19 +17,29 @@
       >
         Crafting exceptional web and digital experiences
       </p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 mb-5">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 mb-5">
         <ProjectCard
-          v-for="(project, index) in projects"
+          v-for="(project, index) in displayedProjects"
           :key="index"
           :project="project"
         />
       </div>
+      <router-link
+        v-if="showButton"
+        class="text-base max-w-max font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block mb-5 button"
+        to="/projects"
+        data-aos="fade-zoom-in"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-sine"
+      >
+        View All Projects
+      </router-link>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ProjectCard from "./ProjectCard.vue";
 import TogaVision from "@/assets/images/togavision.webp";
 import EvolveHQ from "@/assets/images/evolvehq.webp";
@@ -37,27 +47,60 @@ import Jaics from "@/assets/images/jaics.webp";
 import Arts from "@/assets/images/artsandvibes.webp";
 import Pixel from "@/assets/images/pixelanchor.webp";
 import Digital from "@/assets/images/roidigital.webp";
+import Newspoint from "@/assets/images/newspoint.png";
+import Hive from "@/assets/images/propertyhive.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 AOS.init();
-const projects = ref([
-  {
-    name: "Toga Vision",
-    alt: "screenshot of togavision website",
-    imageUrl: TogaVision,
-    websiteUrl: "https://togavision.org",
-    description:
-      "Togavision is a non-profit organization dedicated to empowering artisans and building communities through a holistic approach that encompasses our robust initiatives.",
-    tag: ["Vue Js", "TailwindCSS", "Firebase"],
+
+const props = defineProps({
+  displayCount: {
+    type: Number,
+    default: null,
   },
+  showButton: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const projects = ref([
   {
     name: "EvolveHq",
     alt: "screenshot of evolvehq website",
     imageUrl: EvolveHQ,
     websiteUrl: "https://evolvehq.com.ng",
     description:
-      "Evolve HQ is a pioneering organization dedicated to addressing the pressing challenges faced by Africa in the technology sector. With a mission to empower Africans with cutting-edge skills.",
+      "EvolveHQ is an organization with a mission to empower Africans with cutting-edge skills.",
     tag: ["Wordpress", "Elementor", "ACF"],
+  },
+  {
+    name: "Newspoint",
+    alt: "screenshot of newspoint website",
+    imageUrl: Newspoint,
+    websiteUrl: "https://newspoint-newsblog.netlify.app",
+    description:
+      "Newspoint is a practice newsblog website that provides latest news across all categories",
+    tag: ["Vue", "TailwindCSS"],
+  },
+  {
+    name: "Pixel Anchor",
+    alt: "screenshot of pixelanchor website",
+    imageUrl: Pixel,
+    websiteUrl: "https://pixelanchor.com",
+    description:
+      "Pixel anchor is a software development and digital branding agency in Lagos, Nigeria ",
+    tag: ["Wordpress", "Elementor", "ACF"],
+  },
+  {
+    name: "Toga Vision",
+    alt: "screenshot of togavision website",
+    imageUrl: TogaVision,
+    websiteUrl: "https://togavision.org",
+    description:
+      "Togavision is a non-profit organization dedicated to empowering artisans and building communities",
+    tag: ["Vue Js", "TailwindCSS"],
   },
   {
     name: "Jaics Consulting",
@@ -65,7 +108,15 @@ const projects = ref([
     imageUrl: Jaics,
     websiteUrl: "https://jaicsconsulting.com",
     description:
-      "Jaics Consulting Services is an Human resources firm in Lagos State that provides solutions to operational and organizational challenges.",
+      "Jaics Consulting Services is an Human resources firm in Lagos State that provides HR Solutions",
+    tag: ["Wordpress", "Elementor", "ACF"],
+  },
+  {
+    name: "Roi Digital",
+    alt: "screenshot of roi digital website",
+    imageUrl: Digital,
+    websiteUrl: "https://roidigital.com.ng",
+    description: "ROI Digital is a digital marketing agency in Lagos Nigeria",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
@@ -74,35 +125,24 @@ const projects = ref([
     imageUrl: Arts,
     websiteUrl: "https://artsandvibes.com",
     description:
-      "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes, a dedicated platform that empowers individuals to showcase their crafts.",
+      "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
-    name: "Pixel Anchor",
-    alt: "screenshot of pixelanchor website",
-    imageUrl: Pixel,
-    websiteUrl: "https://pixelanchor.com",
+    name: "PropertyHIVE",
+    alt: "screenshot of propertyHive Landing page",
+    imageUrl: Hive,
+    websiteUrl: "https://property-hive.vercel.app/",
     description:
-      "At Pixel Anchor, we are driven by the belief that technology can transform businesses and elevate their potential. We have been on a mission to empower organizations with innovative solutions that drive growth, efficiency, and success.",
-    tag: ["Wordpress", "Elementor", "ACF"],
-  },
-  {
-    name: "Roi Digital",
-    alt: "screenshot of roi digital website",
-    imageUrl: Digital,
-    websiteUrl: "https://roidigital.com.ng",
-    description:
-      "ROI Digital is a digital marketing agency that provides media planning, content development, SEO, and social media strategy services",
-    tag: ["Wordpress", "Elementor", "ACF"],
-  },
-  {
-    name: "Newspoint Newsblog",
-    alt: "screenshot of newspoint website",
-    imageUrl: "",
-    websiteUrl: "https://newspoint-newsblog.netlify.app",
-    description:
-      "Newspoint is a practice newsblog website that provides latest news across all categories worldwide",
-    tag: ["Vue", "GSAP", "TailwindCSS"],
+      "PropertyHive landing page - a UI practice with Tailwindcss and darkmode exploration",
+    tag: ["Vue", "TailwindCSS"],
   },
 ]);
+
+const displayedProjects = computed(() => {
+  if (props.displayCount) {
+    return projects.value.slice(0, props.displayCount);
+  }
+  return projects.value;
+});
 </script>

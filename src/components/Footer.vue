@@ -9,7 +9,7 @@
       Adeola
     </h2>
     <div
-      class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center gap-4 justify-between"
+      class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center gap-4 justify-between"
     >
       <div>
         <p>Designed with ❤ &nbsp; Adeola &copy; {{ currentYear }}</p>
