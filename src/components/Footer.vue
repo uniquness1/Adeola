@@ -4,7 +4,7 @@
       data-aos="fade-zoom-in"
       data-aos-duration="1500"
       data-aos-easing="ease-in-sine"
-      class="font-bold text-3xl md:text-8xl text-center uppercase dark:text-slate-300 text-slate-800 pt-5"
+      class="font-bold text-3xl md:text-6xl text-center uppercase dark:text-slate-300 text-slate-800 pt-5"
     >
       Adeola
     </h2>

@@ -7,7 +7,7 @@
         data-aos-easing="ease-in-sine"
         class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800"
       >
-        Projects
+        Work Done
       </h1>
       <p
         data-aos="fade-zoom-in"

@@ -2,7 +2,7 @@
   <section class="w-full">
     <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden border-b">
       <h2
-        class="font-bold text-3xl md:text-8xl uppercase dark:text-slate-300 text-slate-800"
+        class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800"
         data-aos="fade-zoom-in"
         data-aos-duration="1500"
         data-aos-easing="ease-in-sine"

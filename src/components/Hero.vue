@@ -1,108 +1,102 @@
 <template>
-  <section class="w-full border-b">
-    <div class="max-w-6xl mx-auto px-4 pt-5 sm:pt-10 overflow-hidden">
-      <div
-        class="flex flex-col w-full"
-        data-aos="fade-zoom-in"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in-sine"
+  <section class="">
+    <div class="max-w-6xl mx-auto pt-10 md:pt-20 px-4">
+      <h1
+        class="text-[33px] sm:text-[40px] md:text-[63.9px] lg:text-[84px] xl:text-[95px] font-extrabold font-serif leading-[60px] md:leading-[90px] lg:leading-[100px] uppercase"
       >
-        <h1
-          class="font-bold max-w-lg sm:max-w-7xl w-full text-6xl sm:text-7xl md:text-8xl xl:text-9xl uppercase dark:text-slate-300 text-slate-800"
-          ref="h1FrontEnd"
-        >
-          Front-End
-        </h1>
-        <h1
-          class="font-bold max-w-lg sm:max-w-7xl w-full text-6xl sm:text-7xl md:text-8xl xl:text-9xl uppercase dark:text-slate-300 text-slate-800 text-right"
-          ref="h1Developer"
-        >
-          Developer
-        </h1>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10 justify-end w-full my-5 md:my-10">
-        <div class="hidden lg:block"></div>
-        <div>
-          <p
-            class="lg:text-left dark:text-slate-300 text-slate-800 text-base sm:text-xl max-w-2xl w-full mb-4"
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-          >
-            I'm a Developer with a handful of experience developing beautiful
-            and easy-to-use websites and apps. I'm great with HTML, CSS,
-            JavaScript and using modern tools like React, VueJs as well as
-            content management systems(CMS) like Wordpress and Drupal to make
-            things run smoothly and work on any device. I enjoy and thrive
-            working with others to create the best possible experiences, and I'm
-            always learning new things to make me even better and excited to use
-            my skills and creativity to build something amazing!
-          </p>
-          <router-link
-            class="text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block max-w-max button"
-            to="/about"
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-          >
-            About Me
-          </router-link>
-        </div>
-      </div>
+        I'M Ajijola Adeola
+      </h1>
+      <h2
+        class="text-[36px] sm:text-[44px] md:text-[70px] lg:text-[92.5px] xl:text-[104px] font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[100px] lg:my-4 fir"
+      >
+        A WEB DEVELOPER &
+      </h2>
+      <h2
+        class="text-[33px] sm:text-[40px] md:text-[63.9px] lg:text-[84px] xl:text-[95px] font-extrabold font-serif leading-[60px] md:leading-[90px] lg:leading-[100px] uppercase sec"
+      >
+        MOBILE DEVELOPER
+      </h2>
     </div>
+    <p class="text-base mb-4 max-w-lg w-full pt-10 px-4 lg:mx-auto">
+      Hello!!!, My name is Ajijola Adeola Ayodele, a developer with a good eye
+      for design, I love to make things pixel perfect either with coding or low
+      code tools.
+    </p>
+    <router-link
+      class="text-base max-w-max lg:mx-auto font-medium uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block mb-5 button"
+      to="/about"
+      data-aos="fade-zoom-in"
+      data-aos-duration="1500"
+      data-aos-easing="ease-in-sine"
+    >
+      Learn More About Me
+    </router-link>
   </section>
 </template>
-
-<script setup>
-import Test from "./Test.vue";
-import gsap from "gsap";
-import { ref, onMounted } from "vue";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-const h1FrontEnd = ref(null);
-const h1Developer = ref(null);
-onMounted(() => {
-  const tl = gsap.timeline();
-  gsap.to(h1FrontEnd.value, {
-    x: "-100vw",
-    opacity: 0,
-    duration: 5,
-    ease: "Power2.easein",
-    stagger: 0.5,
-    scrollTrigger: {
-      trigger: h1FrontEnd.value,
-      start: "top 10%",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-
-  gsap.to(h1Developer.value, {
-    x: "100vw",
-    opacity: 0,
-    duration: 5,
-    ease: "Power2.easein",
-    stagger: 0.5,
-    scrollTrigger: {
-      trigger: h1Developer.value,
-      start: "top 10%",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-  gsap.timeline().play();
-});
-</script>
-
 <style scoped>
-@media (max-width: 450px) {
-  h1 {
-    font-size: 45px;
+@media (max-width: 414px) {
+  h1,
+  .sec {
+    font-size: 32px;
+  }
+  .fir {
+    font-size: 35px;
   }
 }
-@media (max-width: 350px) {
-  h1 {
-    font-size: 34.5px;
+@media (max-width: 400px) {
+  h1,
+  .sec {
+    font-size: 30.5px;
+  }
+  .fir {
+    font-size: 34px;
+  }
+}
+@media (max-width: 388px) {
+  h1,
+  .sec {
+    font-size: 29.5px;
+  }
+  .fir {
+    font-size: 31.5px;
+  }
+}
+@media (max-width: 370px) {
+  h1,
+  .sec {
+    font-size: 28px;
+  }
+  .fir {
+    font-size: 30px;
+  }
+}
+@media (max-width: 355px) {
+  h1,
+  .sec {
+    font-size: 25.5px;
+    line-height: 45px;
+  }
+  .fir {
+    font-size: 26.5px;
+    line-height: 45px;
+  }
+}
+@media (max-width: 325px) {
+  h1,
+  .sec {
+    font-size: 21.5px;
+  }
+  .fir {
+    font-size: 23px;
+  }
+}
+@media (max-width: 280px) {
+  h1,
+  .sec {
+    font-size: 20px;
+  }
+  .fir {
+    font-size: 22px;
   }
 }
 </style>
