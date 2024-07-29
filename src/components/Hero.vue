@@ -1,102 +1,145 @@
 <template>
-  <section class="">
-    <div class="max-w-6xl mx-auto pt-10 md:pt-20 px-4">
-      <h1
-        class="text-[33px] sm:text-[40px] md:text-[63.9px] lg:text-[84px] xl:text-[95px] font-extrabold font-serif leading-[60px] md:leading-[90px] lg:leading-[100px] uppercase"
-      >
-        I'M Ajijola Adeola
-      </h1>
-      <h2
-        class="text-[36px] sm:text-[44px] md:text-[70px] lg:text-[92.5px] xl:text-[104px] font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[100px] lg:my-4 fir"
-      >
-        A WEB DEVELOPER &
-      </h2>
-      <h2
-        class="text-[33px] sm:text-[40px] md:text-[63.9px] lg:text-[84px] xl:text-[95px] font-extrabold font-serif leading-[60px] md:leading-[90px] lg:leading-[100px] uppercase sec"
-      >
-        MOBILE DEVELOPER
-      </h2>
-    </div>
-    <p class="text-base mb-4 max-w-lg w-full pt-10 px-4 lg:mx-auto">
-      Hello!!!, My name is Ajijola Adeola Ayodele, a developer with a good eye
-      for design, I love to make things pixel perfect either with coding or low
-      code tools.
-    </p>
-    <router-link
-      class="text-base max-w-max lg:mx-auto font-medium uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block mb-5 button"
-      to="/about"
-      data-aos="fade-zoom-in"
-      data-aos-duration="1500"
-      data-aos-easing="ease-in-sine"
+  <section
+    class="relative h-[90dvh] grid place-items-center overflow-hidden text-white"
+  >
+    <div
+      class="max-w-6xl mx-auto pt-10 md:pt-20 px-4 text-center relative z-10"
     >
-      Learn More About Me
-    </router-link>
+      <h1 ref="title" class="text-4xl md:text-6xl font-bold">
+        {{ currentRole }}
+      </h1>
+    </div>
+    <div class="floating-icons">
+      <i
+        v-for="(icon, index) in icons"
+        :key="index"
+        :ref="
+          (el) => {
+            if (el) iconRefs[index] = el;
+          }
+        "
+        :class="['icon', icon.iconClass]"
+        :style="{ color: icon.color }"
+      ></i>
+    </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { gsap } from "gsap";
+const nameRoles = [
+  "Crafting Exceptional Experiences",
+  "Web Developer",
+  "Mobile Developer",
+];
+const currentRole = ref(nameRoles[0]);
+let currentIndex = 0;
+let intervalId = null;
+const icons = [
+  { iconClass: "mdi mdi-vuejs", color: "#41b883" },
+  { iconClass: "fab fa-elementor", color: "#0083ff" },
+  { iconClass: "mdi mdi-nuxt", color: "#00dc82" },
+  { iconClass: "mdi mdi-firebase", color: "#ffca28" },
+  { iconClass: "fab fa-webflow", color: "#000000" },
+  { iconClass: "mdi mdi-wordpress", color: "#21759b" },
+  { iconClass: "mdi mdi-drupal", color: "#005d9c" },
+  { iconClass: "mdi mdi-vuetify", color: "#1867c0" },
+  { iconClass: "mdi mdi-tailwind", color: "#38b2ac" },
+  { iconClass: "fab fa-css3", color: "#1572b6" },
+  { iconClass: "fab fa-html5", color: "#e34f26" },
+];
+const iconRefs = ref([]);
+const iconPositions = ref([]);
+const title = ref(null);
+const startSlideshow = async () => {
+  await nextTick();
+  intervalId = setInterval(() => {
+    gsap.to(title.value, {
+      duration: 1,
+      opacity: 0,
+      onComplete: () => {
+        currentIndex = (currentIndex + 1) % nameRoles.length;
+        currentRole.value = nameRoles[currentIndex];
+        gsap.fromTo(title.value, { opacity: 0 }, { opacity: 1, duration: 1 });
+      },
+    });
+  }, 5000);
+};
+
+const initializeIconPositions = () => {
+  iconPositions.value = icons.map(() => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 2,
+    vy: (Math.random() - 0.5) * 2,
+  }));
+};
+
+const updateIconPositions = () => {
+  const containerRect =
+    iconRefs.value[0]?.parentElement?.getBoundingClientRect();
+  if (!containerRect) return;
+
+  iconPositions.value.forEach((pos, index) => {
+    pos.x += pos.vx;
+    pos.y += pos.vy;
+    if (pos.x < 0 || pos.x > containerRect.width) pos.vx *= -1;
+    if (pos.y < 0 || pos.y > containerRect.height) pos.vy *= -1;
+    const icon = iconRefs.value[index];
+    if (icon) {
+      icon.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+    }
+  });
+  for (let i = 0; i < iconPositions.value.length; i++) {
+    for (let j = i + 1; j < iconPositions.value.length; j++) {
+      const dx = iconPositions.value[i].x - iconPositions.value[j].x;
+      const dy = iconPositions.value[i].y - iconPositions.value[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 30) {
+        const angle = Math.atan2(dy, dx);
+        const repelForce = 0.5;
+        iconPositions.value[i].vx += Math.cos(angle) * repelForce;
+        iconPositions.value[i].vy += Math.sin(angle) * repelForce;
+        iconPositions.value[j].vx -= Math.cos(angle) * repelForce;
+        iconPositions.value[j].vy -= Math.sin(angle) * repelForce;
+      }
+    }
+  }
+  requestAnimationFrame(updateIconPositions);
+};
+
+onMounted(() => {
+  startSlideshow();
+  initializeIconPositions();
+  updateIconPositions();
+});
+
+onUnmounted(() => {
+  clearInterval(intervalId);
+});
+</script>
+
 <style scoped>
-@media (max-width: 414px) {
-  h1,
-  .sec {
-    font-size: 32px;
-  }
-  .fir {
-    font-size: 35px;
-  }
+section {
+  position: relative;
+  overflow: hidden;
 }
-@media (max-width: 400px) {
-  h1,
-  .sec {
-    font-size: 30.5px;
-  }
-  .fir {
-    font-size: 34px;
-  }
+
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
-@media (max-width: 388px) {
-  h1,
-  .sec {
-    font-size: 29.5px;
-  }
-  .fir {
-    font-size: 31.5px;
-  }
-}
-@media (max-width: 370px) {
-  h1,
-  .sec {
-    font-size: 28px;
-  }
-  .fir {
-    font-size: 30px;
-  }
-}
-@media (max-width: 355px) {
-  h1,
-  .sec {
-    font-size: 25.5px;
-    line-height: 45px;
-  }
-  .fir {
-    font-size: 26.5px;
-    line-height: 45px;
-  }
-}
-@media (max-width: 325px) {
-  h1,
-  .sec {
-    font-size: 21.5px;
-  }
-  .fir {
-    font-size: 23px;
-  }
-}
-@media (max-width: 280px) {
-  h1,
-  .sec {
-    font-size: 20px;
-  }
-  .fir {
-    font-size: 22px;
-  }
+
+.icon {
+  position: absolute;
+  font-size: 2rem;
 }
 </style>

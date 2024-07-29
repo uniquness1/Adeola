@@ -49,6 +49,10 @@ import Pixel from "@/assets/images/pixelanchor.webp";
 import Digital from "@/assets/images/roidigital.webp";
 import Newspoint from "@/assets/images/newspoint.png";
 import Hive from "@/assets/images/propertyhive.png";
+import Emterr from "@/assets/images/emteerr.png";
+import WDC from "@/assets/images/wdc.png";
+import stay from "@/assets/images/stayeasy.png";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -136,6 +140,33 @@ const projects = ref([
     description:
       "PropertyHive landing page - a UI practice with Tailwindcss and darkmode exploration",
     tag: ["Vue", "TailwindCSS"],
+  },
+  {
+    name: "Stay2Easy Admin",
+    alt: "screenshot of propertyHive Landing page",
+    imageUrl: stay,
+    websiteUrl: "https://admin-stayeasy.vercel.app/",
+    description:
+      "Stay2Easy Admin Dashbaord - Admin Dashboard for Stay2Easy website",
+    tag: ["Vue", "Nuxt", "TailwindCSS"],
+  },
+  {
+    name: "WDC",
+    alt: "screenshot of Wild fusion digital center Landing page",
+    imageUrl: WDC,
+    websiteUrl: "https://wdc.ng/",
+    description:
+      "Website Redesign to ensure good UIUX, maintaining simplicity & performance",
+    tag: ["Wordpress", "Elementor", "ACF"],
+  },
+  {
+    name: "Emeterr",
+    alt: "screenshot of Emeterr Landing page",
+    imageUrl: Emterr,
+    websiteUrl: "https://www.emeterr.com/",
+    description:
+      "Providing cutting-edge educational solutions for a diverse audience",
+    tag: ["Nuxt", "Vue", "Vuetify"],
   },
 ]);
 
