@@ -168,9 +168,11 @@ const animateText = () => {
 
   gsap.to(chars, {
     rotationX: "360",
-    stagger: 0.2,
+    stagger: 0.1,
+    duration: 5,
     repeat: -1,
-    duration: 8,
+    delay: 0,
+    repeatDelay: 40,
   });
 };
 
@@ -243,8 +245,8 @@ section {
 }
 @media (min-width: 100px) and (max-width: 500px) {
   section {
-    height: 80vh;
-    height: 80dvh;
+    height: 90vh;
+    height: 90dvh;
     display: grid;
     place-items: center;
   }
