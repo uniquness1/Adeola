@@ -1,13 +1,63 @@
 <template>
-  <section
-    class="relative h-[90dvh] grid place-items-center overflow-hidden text-white"
-  >
-    <div
-      class="max-w-6xl mx-auto pt-10 md:pt-20 px-4 text-center relative z-10"
-    >
-      <h1 ref="title" class="text-4xl md:text-6xl font-bold">
-        {{ currentRole }}
-      </h1>
+  <section class="relative 2xl:h-[100dvh] max-w-6xl mx-auto">
+    <div class="py-16 px-4 xl:px-0 relative z-10 border-b">
+      <div v-if="isContentReady">
+        <h1
+          ref="title"
+          class="text-left text-slate-800 dark:text-white text-[35px] sm:text-[46px] md:text-[67.5px] lg:text-[90px] leading-[55px] md:leading-[90px] font-black font-serif"
+        >
+          <span
+            v-for="(char, index) in titleChars"
+            :key="`title-${index}`"
+            :class="['char', { space: char === ' ' }]"
+            >{{ char }}</span
+          >
+        </h1>
+        <h1
+          ref="subtitle0"
+          class="text-left text-slate-800 dark:text-white text-[35px] sm:text-[46px] md:text-[67.5px] lg:text-[90px] leading-[55px] md:leading-[90px] font-black font-serif"
+        >
+          <span
+            v-for="(char, index) in subtitle0Chars"
+            :key="`subtitle0-${index}`"
+            :class="['char', { space: char === ' ' }]"
+            >{{ char }}</span
+          >
+        </h1>
+        <h2
+          ref="subtitle1"
+          class="text-left text-slate-800 dark:text-white text-[35px] sm:text-[46px] md:text-[67.5px] lg:text-[90px] leading-[55px] md:leading-[90px] font-black font-serif"
+        >
+          <span
+            v-for="(char, index) in subtitle1Chars"
+            :key="`subtitle1-${index}`"
+            :class="['char', { space: char === ' ' }]"
+            >{{ char }}</span
+          >
+        </h2>
+        <h2
+          ref="subtitle2"
+          class="text-left text-slate-800 dark:text-white text-[35px] sm:text-[46px] md:text-[67.5px] lg:text-[90px] leading-[55px] md:leading-[90px] font-black font-serif"
+        >
+          <span
+            v-for="(char, index) in subtitle2Chars"
+            :key="`subtitle2-${index}`"
+            :class="['char', { space: char === ' ' }]"
+            >{{ char }}</span
+          >
+        </h2>
+        <h2
+          ref="subtitle3"
+          class="text-left text-slate-800 dark:text-white text-[35px] sm:text-[46px] md:text-[67.5px] lg:text-[90px] leading-[55px] md:leading-[90px] font-black font-serif"
+        >
+          <span
+            v-for="(char, index) in subtitle3Chars"
+            :key="`subtitle3-${index}`"
+            :class="['char', { space: char === ' ' }]"
+            >{{ char }}</span
+          >
+        </h2>
+      </div>
     </div>
     <div class="floating-icons">
       <i
@@ -28,14 +78,23 @@
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import { gsap } from "gsap";
-const nameRoles = [
-  "Crafting Exceptional Experiences",
-  "Web Developer",
-  "Mobile Developer",
-];
-const currentRole = ref(nameRoles[0]);
-let currentIndex = 0;
-let intervalId = null;
+
+// Define the text contents
+const titleText = "Crafting Exceptional";
+const subtitle0Text = "Experiences";
+const subtitle1Text = "Web &";
+const subtitle2Text = "Mobile";
+const subtitle3Text = "Developer";
+
+// Create reactive arrays to store the characters
+const titleChars = ref(titleText.split(""));
+const subtitle0Chars = ref(subtitle0Text.split(""));
+const subtitle1Chars = ref(subtitle1Text.split(""));
+const subtitle2Chars = ref(subtitle2Text.split(""));
+const subtitle3Chars = ref(subtitle3Text.split(""));
+
+const isContentReady = ref(false);
+
 const icons = [
   { iconClass: "mdi mdi-vuejs", color: "#41b883" },
   { iconClass: "fab fa-elementor", color: "#0083ff" },
@@ -49,23 +108,10 @@ const icons = [
   { iconClass: "fab fa-css3", color: "#1572b6" },
   { iconClass: "fab fa-html5", color: "#e34f26" },
 ];
+
 const iconRefs = ref([]);
 const iconPositions = ref([]);
-const title = ref(null);
-const startSlideshow = async () => {
-  await nextTick();
-  intervalId = setInterval(() => {
-    gsap.to(title.value, {
-      duration: 1,
-      opacity: 0,
-      onComplete: () => {
-        currentIndex = (currentIndex + 1) % nameRoles.length;
-        currentRole.value = nameRoles[currentIndex];
-        gsap.fromTo(title.value, { opacity: 0 }, { opacity: 1, duration: 1 });
-      },
-    });
-  }, 5000);
-};
+const animationFrameId = ref(null);
 
 const initializeIconPositions = () => {
   iconPositions.value = icons.map(() => ({
@@ -91,6 +137,7 @@ const updateIconPositions = () => {
       icon.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     }
   });
+
   for (let i = 0; i < iconPositions.value.length; i++) {
     for (let j = i + 1; j < iconPositions.value.length; j++) {
       const dx = iconPositions.value[i].x - iconPositions.value[j].x;
@@ -107,17 +154,41 @@ const updateIconPositions = () => {
       }
     }
   }
-  requestAnimationFrame(updateIconPositions);
+  animationFrameId.value = requestAnimationFrame(updateIconPositions);
+};
+
+const animateText = () => {
+  const chars = document.querySelectorAll(".char");
+  if (chars.length === 0) return;
+
+  gsap.set(chars, {
+    transformOrigin: "center center -100px",
+    backfaceVisibility: "hidden",
+  });
+
+  gsap.to(chars, {
+    rotationX: "360",
+    stagger: 0.1,
+    repeat: -1,
+    duration: 5,
+  });
 };
 
 onMounted(() => {
-  startSlideshow();
-  initializeIconPositions();
-  updateIconPositions();
+  nextTick(() => {
+    isContentReady.value = true;
+    nextTick(() => {
+      animateText();
+      initializeIconPositions();
+      updateIconPositions();
+    });
+  });
 });
 
 onUnmounted(() => {
-  clearInterval(intervalId);
+  if (animationFrameId.value) {
+    cancelAnimationFrame(animationFrameId.value);
+  }
 });
 </script>
 
@@ -141,5 +212,33 @@ section {
 .icon {
   position: absolute;
   font-size: 2rem;
+}
+
+.char {
+  display: inline-block;
+}
+
+.char.space {
+  margin-right: 0.5em;
+}
+
+@media (max-width: 400px) {
+  h1,
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+@media (max-width: 360px) {
+  h1,
+  h2 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 320px) {
+  h1,
+  h2 {
+    font-size: 25px;
+  }
 }
 </style>

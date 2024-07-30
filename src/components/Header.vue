@@ -1,6 +1,8 @@
 <template>
-  <header class="w-full border-b">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+  <header class="w-full">
+    <div
+      class="max-w-6xl mx-auto flex items-center justify-between p-4 border-b"
+    >
       <router-link to="/" class="flex flex-col text-2xl font-medium">
         Adeola
       </router-link>
