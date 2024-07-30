@@ -1,7 +1,7 @@
 <template>
   <section class="relative overflow-hidden py-2 md:py-12">
     <div class="w-full flex flex-col max-w-6xl mx-auto">
-      <div class="border-b py-2 md:pb-12">
+      <div class="border-b border-t py-2 md:py-12">
         <div class="scroll-trigger">
           <span
             class="block sm:text-[22px] md:text-[33px] lg:text-[40px] xl:text-[50px] leading-[55px] font-bold text-center w-full md:py-4"

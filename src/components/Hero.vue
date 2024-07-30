@@ -1,6 +1,6 @@
 <template>
   <section class="relative 2xl:h-[100dvh] max-w-6xl mx-auto">
-    <div class="py-16 px-4 xl:px-0 relative z-10 border-b">
+    <div class="py-16 px-4 xl:px-0 relative z-10">
       <div v-if="isContentReady">
         <h1
           ref="title"
@@ -146,7 +146,7 @@ const updateIconPositions = () => {
 
       if (distance < 30) {
         const angle = Math.atan2(dy, dx);
-        const repelForce = 0.5;
+        const repelForce = 0.3;
         iconPositions.value[i].vx += Math.cos(angle) * repelForce;
         iconPositions.value[i].vy += Math.sin(angle) * repelForce;
         iconPositions.value[j].vx -= Math.cos(angle) * repelForce;
@@ -168,9 +168,9 @@ const animateText = () => {
 
   gsap.to(chars, {
     rotationX: "360",
-    stagger: 0.1,
+    stagger: 0.2,
     repeat: -1,
-    duration: 5,
+    duration: 8,
   });
 };
 
@@ -225,7 +225,7 @@ section {
 @media (max-width: 400px) {
   h1,
   h2 {
-    font-size: 32px;
+    font-size: 31px;
     line-height: 40px;
   }
 }
@@ -239,6 +239,14 @@ section {
   h1,
   h2 {
     font-size: 25px;
+  }
+}
+@media (min-width: 100px) and (max-width: 500px) {
+  section {
+    height: 70vh;
+    height: 70dvh;
+    display: grid;
+    place-items: center;
   }
 }
 </style>
