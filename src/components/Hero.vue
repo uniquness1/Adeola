@@ -225,7 +225,7 @@ section {
 @media (max-width: 400px) {
   h1,
   h2 {
-    font-size: 31px;
+    font-size: 30px;
     line-height: 40px;
   }
 }
@@ -243,8 +243,8 @@ section {
 }
 @media (min-width: 100px) and (max-width: 500px) {
   section {
-    height: 70vh;
-    height: 70dvh;
+    height: 80vh;
+    height: 80dvh;
     display: grid;
     place-items: center;
   }
