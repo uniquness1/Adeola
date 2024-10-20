@@ -75,7 +75,7 @@
       <transition name="slide">
         <div
           v-if="isMobileMenuOpen"
-          class="h-screen w-full gap-4 fixed top-0 left-0 dark:bg-[#16171d] bg-white z-10 md:hidden"
+          class="h-screen w-full gap-4 fixed top-0 left-0 dark:bg-[#16171d] bg-white z-[111111] md:hidden"
         >
           <div class="absolute top-10 right-6" @click="toggleMobileMenu">
             <span
