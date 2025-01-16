@@ -88,15 +88,15 @@ const projects = ref([
       "Newspoint is a practice newsblog website that provides latest news across all categories",
     tag: ["Vue", "TailwindCSS"],
   },
-  {
-    name: "Pixel Anchor",
-    alt: "screenshot of pixelanchor website",
-    imageUrl: Pixel,
-    websiteUrl: "https://pixelanchor.com",
-    description:
-      "Pixel anchor is a software development and digital branding agency in Lagos, Nigeria ",
-    tag: ["Wordpress", "Elementor", "ACF"],
-  },
+  // {
+  //   name: "Pixel Anchor",
+  //   alt: "screenshot of pixelanchor website",
+  //   imageUrl: Pixel,
+  //   websiteUrl: "https://pixelanchor.com",
+  //   description:
+  //     "Pixel anchor is a software development and digital branding agency in Lagos, Nigeria ",
+  //   tag: ["Wordpress", "Elementor", "ACF"],
+  // },
   {
     name: "Toga Vision",
     alt: "screenshot of togavision website",
@@ -123,15 +123,15 @@ const projects = ref([
     description: "ROI Digital is a digital marketing agency in Lagos Nigeria",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
-  {
-    name: "Arts and Vibes",
-    alt: "screenshot of arts and vibes website",
-    imageUrl: Arts,
-    websiteUrl: "https://artsandvibes.com",
-    description:
-      "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes",
-    tag: ["Wordpress", "Elementor", "ACF"],
-  },
+  // {
+  //   name: "Arts and Vibes",
+  //   alt: "screenshot of arts and vibes website",
+  //   imageUrl: Arts,
+  //   websiteUrl: "https://artsandvibes.com",
+  //   description:
+  //     "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes",
+  //   tag: ["Wordpress", "Elementor", "ACF"],
+  // },
   {
     name: "PropertyHIVE",
     alt: "screenshot of propertyHive Landing page",
