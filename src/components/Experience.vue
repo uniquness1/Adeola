@@ -2,58 +2,31 @@
   <section class="border-b max-w-6xl w-full mx-auto px-4 py-5 sm:py-10">
     <div class="flex flex-col max-h-max h-full">
       <div>
-        <h2
-          data-aos="fade-zoom-in"
-          data-aos-duration="1500"
-          data-aos-easing="ease-in-sine"
-          class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800"
-        >
+        <h2 data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
+          class="font-bold text-3xl md:text-5xl uppercase dark:text-slate-300 text-slate-800">
           Work Experience
         </h2>
       </div>
       <div class="grid md:grid-cols-2 gap-4 mt-5">
-        <div
-          v-for="(experience, index) in sortedExperiences"
-          :key="index"
-          class="relative max-w-max pb-2"
-          @mouseenter="showPopup = index"
-          @mouseleave="showPopup = null"
-        >
-          <h3
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-            class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800"
-          >
+        <div v-for="(experience, index) in sortedExperiences" :key="index" class="relative max-w-max pb-2"
+          @mouseenter="showPopup = index" @mouseleave="showPopup = null">
+          <h3 data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
+            class="text-sm sm:text-xl font-bold mt-2 max-w-lg dark:text-slate-300 text-slate-800">
             {{ experience.company }} -
             <span class="font-normal">{{ experience.role }}</span>
           </h3>
-          <div
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-          >
+          <div data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine">
             <span class="dark:text-slate-300 text-slate-800">{{
               experience.duration
             }}</span>
-            <span class="dark:text-slate-300 text-slate-800"
-              >&nbsp;- {{ experience.type }}</span
-            >
+            <span class="dark:text-slate-300 text-slate-800">&nbsp;- {{ experience.type }}</span>
           </div>
-          <span
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-            class="dark:text-slate-300 text-slate-800"
-            >{{ experience.location }}</span
-          >
+          <span data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
+            class="dark:text-slate-300 text-slate-800">{{ experience.location }}</span>
 
-          <div
-            v-if="showPopup === index"
+          <div v-if="showPopup === index"
             class="popup absolute top-0 left-0 mt-8 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg z-10"
-            @mouseenter="showPopup = index"
-            @mouseleave="showPopup = null"
-          >
+            @mouseenter="showPopup = index" @mouseleave="showPopup = null">
             <p class="text-sm dark:text-slate-300 text-slate-800">
               {{ experience.details }}
             </p>
@@ -74,9 +47,18 @@ const showPopup = ref(null);
 
 const experiences = [
   {
+    company: "Wekurnect Limited",
+    role: "Frontend Engineer",
+    duration: "July 2024 - Present",
+    type: "Full Time, Remote",
+    location: "Lagos state",
+    details:
+      "Led the comprehensive redevelopment of Wekurnect's SaaS platform for UAC Food Limited(UFL), transforming it into a standalone solution using Vue.js, Vuex, and TailwindCSS.The platform streamlines complex business operations, including distributor management, customer relationship tracking, invoicing, receipt generation, targeted communications, and discount administration.Implemented responsive interfaces and optimized workflows that significantly improved user experience while maintaining robust functionality across the entire distribution chain."
+  },
+  {
     company: "Osten Laboratories",
     role: "Web Developer",
-    duration: "July 2024 - Present",
+    duration: "July 2024 - May 2025",
     type: "Full Time, Remote",
     location: "Lagos state",
   },
@@ -91,7 +73,7 @@ const experiences = [
   },
   {
     company: "Pixel Anchor",
-    role: "Web Developer",
+    role: "Frontend Developer",
     duration: "January 2024 - Present",
     type: "Contract, Remote",
     location: "Lagos state",
