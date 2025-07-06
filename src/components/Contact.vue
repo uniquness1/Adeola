@@ -1,55 +1,61 @@
 <template>
   <section class="w-full">
-    <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden border-b">
-      <h2
-        class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800"
-        data-aos="fade-zoom-in"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in-sine"
-      >
-        Let's Talk
-      </h2>
-      <div
-        class="flex flex-col gap-4 md:flex-row justify-between md:items-center"
-      >
-        <div class="flex flex-col gap-2 mt-2">
-          <p
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-            class="text-sm sm:text-base"
-          >
-            For Inquires and business conversation reach out to me on
-          </p>
-          <a
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-            href="mailto:aajijola3@gmail.com"
-            >aajijola3@gmail.com</a
-          >
-          <a
-            data-aos="fade-zoom-in"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-sine"
-            href="tel:+2349152931633"
-            >+2349152931633</a
-          >
+    <div
+      class="w-full mx-auto flex items-center justify-between py-5 border-[0.5px] border-[rgba(218,197,167,0.3)] bg-[rgba(33,33,33,0.8)] backdrop-blur-md rounded-sm overflow-hidden">
+      <div class="flex items-center animate-scroll whitespace-nowrap">
+        <div class="flex items-center space-x-8 text-white">
+          <span v-for="index in repeatCount" :key="index" class="flex items-center space-x-2">
+            <i v-for="star in starCount" :key="star" class="fas fa-star text-[#DAC5A7] text-[8px]">
+            </i>
+            <span class="text-base text-[#DAC5A7] font-medium">{{ scrollText }}</span>
+          </span>
         </div>
-        <router-link
-          class="text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block max-w-max button"
-          to="/contact"
-          data-aos="fade-zoom-in"
-          data-aos-duration="1500"
-          data-aos-easing="ease-in-sine"
-          >Contact Me</router-link
-        >
       </div>
+    </div>
+    <div class="mt-10 sm:mt-20 mb-20 md:mb-48 max-w-6xl mx-auto w-full text-center px-5">
+      <h3 class="text-[#dac5a7] text-center text-xl font-normal">Got a Project?</h3>
+      <h2
+        class="text-[#dac5a7] text-center xs:text-5xl sm:text-6xl md:text-8xl font-semibold max-w-[700px] mx-auto my-10">
+        Let's bring
+        your project
+        to
+        live
+      </h2>
+      <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-xl mx-auto">Crafting
+        exceptional web and mobile experiences that is not just visually appealing but also easy to use</p>
+      <button class="bg-[rgb(218,197,167)] mt-10 py-3  px-10 text-[#121212] rounded">
+        <router-link to="/contact" class="text-xl font-medium tracking-widest capitalize">
+          Get in
+          Touch
+        </router-link>
+      </button>
     </div>
   </section>
 </template>
+
 <script setup>
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ref } from "vue";
+const scrollText = ref("Let's Talk");
+const starCount = ref(3);
+const repeatCount = ref(100);
+
 AOS.init();
 </script>
+
+<style scoped>
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 100s linear infinite;
+}
+</style>

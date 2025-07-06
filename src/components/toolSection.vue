@@ -1,72 +1,30 @@
 <template>
-  <section class="relative overflow-hidden py-2 md:py-12">
-    <div class="w-full flex flex-col max-w-6xl mx-auto">
-      <div class="border-b border-t py-2 md:py-12">
-        <div class="scroll-trigger">
-          <span
-            class="block sm:text-[22px] md:text-[33px] lg:text-[40px] xl:text-[50px] leading-[55px] font-bold text-center w-full md:py-4"
-            >JavaScript, Vue.js, Nuxt, Tailwind, Flutter</span
-          >
-        </div>
+  <section class="w-full mx-auto mb-10 md:mb-24 px-5">
+    <div class="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto w-full mt-20">
+      <div>
+        <h2 class="text-[#DAC5A7] text-4xl md:text-5xl font-light leading-tight">A website
+          that leaves
+          a lasting impression!</h2>
       </div>
-      <div class="border-b py-2 md:py-12">
-        <div class="scroll-trigger">
-          <span
-            class="block sm:text-[22px] md:text-[33px] lg:text-[40px] xl:text-[50px] leading-[55px] font-bold text-center w-full md:py-4"
-            >WordPress, Elementor, Drupal, Webflow</span
-          >
+      <div>
+        <p class="text-base md:text-xl font-extralight text-[#dac5a7]"> Hi, I'm
+          Adeola, a fullstack web developer,
+          wordpress developer and a mobile developer with a handful of
+          experience developing beautiful and easy-to-use websites and apps. I'm
+          great with HTML, CSS, JavaScript, Flutter and using modern tools like
+          VueJs and NuxtJs as well as content management systems(CMS)
+          like Wordpress & Webflow to make things run smoothly and
+          work on any device.</p>
+        <div class="mt-10 flex items-center gap-4">
+          <i
+            class="fab fa-facebook text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+          <i
+            class="fab fa-twitter text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+          <i
+            class="fab fa-linkedin text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup>
-import { onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-onMounted(() => {
-  const triggers = gsap.utils.toArray(".scroll-trigger");
-
-  triggers.forEach((trigger, index) => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.5,
-      },
-    });
-
-    tl.fromTo(
-      trigger,
-      { xPercent: 100, opacity: 0 },
-      { xPercent: -120, opacity: 1, duration: 1, ease: "power1.inOut" }
-    );
-    if (index < triggers.length - 1) {
-      const nextTrigger = triggers[index + 1];
-      tl.fromTo(
-        nextTrigger,
-        { xPercent: 100, opacity: 0 },
-        { xPercent: 60, opacity: 0.3, duration: 0.3 },
-        0.7
-      );
-    }
-  });
-});
-</script>
-
-<style scoped>
-.scroll-trigger {
-  position: relative;
-  overflow: hidden;
-}
-@media (max-width: 350px) {
-  span {
-    font-size: 14px !important;
-  }
-}
-</style>

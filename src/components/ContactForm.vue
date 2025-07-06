@@ -1,53 +1,26 @@
 <template>
   <form @submit.prevent="SubmitNow" class="flex flex-col gap-4">
     <div>
-      <input
-        data-aos="fade-zoom-in"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in-sine"
-        type="text"
-        id="fullname"
-        placeholder="Enter your full name"
-        v-model="fullname"
-        @input="clearError('fullname')"
-        @blur="validateFullname"
-        class="bg-transparent border rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full"
-      />
+      <input data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="text" id="fullname"
+        placeholder="Enter your full name" v-model="fullname" @input="clearError('fullname')" @blur="validateFullname"
+        class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]" />
       <p v-if="fullnameError" class="text-base text-red-500">
         {{ fullnameError }}
       </p>
     </div>
 
     <div>
-      <input
-        data-aos="fade-zoom-in"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in-sine"
-        type="email"
-        id="email"
-        placeholder="Enter your email"
-        v-model="email"
-        @input="clearError('email')"
-        @blur="validateEmailField"
-        class="bg-transparent border rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full"
-      />
+      <input data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="email" id="email"
+        placeholder="Enter your email" v-model="email" @input="clearError('email')" @blur="validateEmailField"
+        class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]" />
       <p v-if="emailError" class="text-base text-red-500">{{ emailError }}</p>
     </div>
 
     <div>
-      <textarea
-        data-aos="fade-zoom-in"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in-sine"
-        id="message"
-        placeholder="Your message/services required"
-        cols="30"
-        rows="7"
-        v-model="message"
-        @input="clearError('message')"
+      <textarea data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" id="message"
+        placeholder="Your message/services required" cols="30" rows="7" v-model="message" @input="clearError('message')"
         @blur="validateMessage"
-        class="bg-transparent border rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full"
-      ></textarea>
+        class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]"></textarea>
       <p v-if="messageError" class="text-base text-red-500">
         {{ messageError }}
       </p>
@@ -55,37 +28,17 @@
     <p v-if="successMessage" class="text-base text-green-500">
       {{ successMessage }}
     </p>
-    <button
-      data-aos="fade-zoom-in"
-      data-aos-duration="1500"
-      data-aos-easing="ease-in-sine"
-      type="button"
-      @click="SubmitNow"
-      :disabled="loading"
-      class="text-xs sm:text-base font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block max-w-max button cursor-pointer"
-      :class="{ 'cursor-not-allowed opacity-50': loading }"
-    >
+    <button data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="button"
+      @click="SubmitNow" :disabled="loading"
+      class="text-xs sm:text-base font-semibold uppercase px-4 py-1 border-[#dac5a7] border border-[#dac5a7]] border-solid rounded-full md:block max-w-max button cursor-pointer text-[#dac5a7]"
+      :class="{ 'cursor-not-allowed opacity-50': loading }">
       <span v-if="!loading">Submit Now</span>
       <span v-else class="flex items-center">
-        <svg
-          class="animate-spin h-5 w-5 text-gray-500"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"
-          ></circle>
-          <path
-            class="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zM12 20a8 8 0 01-8-8H0c0 6.627 5.373 12 12 12v-4z"
-          ></path>
+        <svg class="animate-spin h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zM12 20a8 8 0 01-8-8H0c0 6.627 5.373 12 12 12v-4z"></path>
         </svg>
         <span class="ml-2">Sending...</span>
       </span>

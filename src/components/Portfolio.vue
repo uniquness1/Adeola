@@ -1,14 +1,22 @@
 <template>
-  <section class="w-full border-b">
+  <section class="max-w-2xl w-full mx-auto mt-40 mb-10 md:mb-24 px-2.5">
+    <h1 class="text-center text-[#DAC5A7] text-[42px] leading-[60px] md:text-[82px] font-normal md:leading-[100px]">
+      Work Done
+    </h1>
+    <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-xl mx-auto">Crafting
+      exceptional web and
+      mobile
+      experiences that
+      is not just
+      visually appealing but also easy to use</p>
+    <div class="w-full max-w-[200px] mx-auto mt-16 md:mt-24 text-center animate-pulse cursor-pointer">
+      <i
+        class="fas fa-arrow-down text-[#dac5a7] text-base border rounded-full border-[rgba(218,197,167,0.3)] py-1.5 px-3 bg-[rgb(26,26,26)] mr-2 "></i>
+      <span class="text-base md:text-xl font-light text-center text-[#dac5a7] max-w-xl mx-auto">My Projects</span>
+    </div>
+  </section>
+  <section>
     <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
-      <h1 data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
-        class="font-bold text-3xl md:text-6xl uppercase dark:text-slate-300 text-slate-800">
-        Work Done
-      </h1>
-      <p data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
-        class="text-sm sm:text-base mt-2 mb-5">
-        Crafting exceptional web and digital experiences
-      </p>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 mb-5">
         <ProjectCard v-for="(project, index) in displayedProjects" :key="index" :project="project" />
       </div>

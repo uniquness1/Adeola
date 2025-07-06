@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 .dark {
-  background: #16171d;
+  background: rgb(26, 26, 26);
   color: #fff;
 }
-#app {
-  font-family: "Syne", sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+p,
+span,
+a {
+  font-family: "Open Sans" sans-serif !important;
   font-optical-sizing: auto;
 }
 .nav-links {
@@ -15,7 +24,7 @@
 
 .nav-links::before {
   content: "";
-  background-color: rgb(112, 128, 144);
+  background-color: rgb(218, 197, 167);
   position: absolute;
   left: 0;
   bottom: 3px;
