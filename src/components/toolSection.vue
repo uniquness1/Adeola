@@ -15,16 +15,13 @@
           VueJs and NuxtJs as well as content management systems(CMS)
           like Wordpress & Webflow to make things run smoothly and
           work on any device.</p>
-        <div class="mt-10 flex items-center gap-4">
-          <i
-            class="fab fa-facebook text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
-          <i
-            class="fab fa-twitter text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
-          <i
-            class="fab fa-linkedin text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
-
+        <div class="mt-5">
+          <SocialMedia />
         </div>
       </div>
     </div>
   </section>
 </template>
+<script setup>
+import SocialMedia from "./Socialmedia.vue";
+</script>

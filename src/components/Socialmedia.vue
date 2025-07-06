@@ -1,10 +1,16 @@
 <template>
-  <div class="flex flex-wrap items-center justify-center md:justify-start my-5 gap-4 md:gap-2">
-    <a class="text-xs sm:text-base font-semibold uppercase px-4 py-1 text-[#DAC5A7] border-2 border-[#DAC5A7] border-solid rounded-full md:block max-w-max button"
-      target="_blank" href="https://github.com/uniquness1">Github</a>
-    <a class="text-xs sm:text-base font-semibold uppercase px-4 py-1 text-[#DAC5A7] border-2 border-[#DAC5A7] border-solid rounded-full md:block max-w-max button"
-      target="_blank" href="https://www.linkedin.com/in/adeola-ajijola/">Linkedin</a>
-    <a class="text-xs sm:text-base font-semibold uppercase px-4 py-1 text-[#DAC5A7] border-2 border-[#DAC5A7] border-solid rounded-full md:block max-w-max button"
-      target="_blank" href="https://twitter.com/ade236">Twitter</a>
+  <div class="flex items-center gap-4">
+    <a target="_blank" href="https://github.com/uniquness1">
+      <i
+        class="fab fa-github text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+    </a>
+    <a target="_blank" href="https://twitter.com/ade236">
+      <i
+        class="fab fa-twitter text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+    </a>
+    <a target="_blank" href="https://www.linkedin.com/in/adeola-ajijola/">
+      <i
+        class="fab fa-linkedin text-[#dac5a7 border-[#dac5a7] border text-base bg-[rgba(218,197,167,0.05)] px-3 py-2 rounded-full"></i>
+    </a>
   </div>
 </template>
