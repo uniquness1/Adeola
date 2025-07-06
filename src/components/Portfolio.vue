@@ -21,7 +21,7 @@
         <ProjectCard v-for="(project, index) in displayedProjects" :key="index" :project="project" />
       </div>
       <router-link v-if="showButton"
-        class="text-base max-w-max font-semibold uppercase px-4 py-1 text-black dark:text-white border-2 border-black dark:border-white border-solid rounded-full md:block mb-5 button"
+        class="text-base max-w-max font-semibold uppercase px-4 py-1 text-white border-2border-white border-solid rounded-full md:block mb-5 button"
         to="/projects" data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine">
         View All Projects
       </router-link>

@@ -15,9 +15,9 @@
         </nav>
         <div class="flex items-center gap-4 md:hidden">
           <div class="flex flex-col gap-[4px]" @click="toggleMobileMenu">
-            <span class="bg-black dark:bg-white block w-3 h-[3px]"></span>
-            <span class="bg-black dark:bg-white block w-6 h-[3px]"></span>
-            <span class="bg-black dark:bg-white block w-3 h-[3px] self-end"></span>
+            <span class="bg-white block w-3 h-[3px]"></span>
+            <span class="bg-white block w-6 h-[3px]"></span>
+            <span class="bg-white block w-3 h-[3px] self-end"></span>
           </div>
         </div>
         <button class="bg-[#DAC5A7] py-1.5 px-2.5 text-[#121212] capitalize text-base rounded"><a
@@ -30,8 +30,8 @@
         <div v-if="isMobileMenuOpen"
           class="h-screen w-full gap-4 fixed top-0 left-0 bg-[rgb(26,26,26)] z-[111111] md:hidden">
           <div class="absolute top-10 right-6" @click="toggleMobileMenu">
-            <span class="dark:bg-white bg-black block w-6 h-[3px] transform rotate-45"></span>
-            <span class="dark:bg-white bg-black block w-6 h-[3px] transform -rotate-45 -mt-1"></span>
+            <span class="bg-white  block w-6 h-[3px] transform rotate-45"></span>
+            <span class="bg-white block w-6 h-[3px] transform -rotate-45 -mt-1"></span>
           </div>
           <div class="flex flex-col gap-6 h-full items-center justify-center">
             <nav class="flex flex-col w-full gap-4 items-center">
