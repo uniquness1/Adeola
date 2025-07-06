@@ -16,7 +16,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "Ajijola Adeola Ayodele - Frontend web and mobile developer",
+        title: "Home - Ajijola Adeola Ayodele",
         metaTags: [
           {
             name: "description",
@@ -36,8 +36,7 @@ const router = createRouter({
       name: "projects",
       component: () => import("../views/PortfolioView.vue"),
       meta: {
-        title:
-          "Projects - Ajijola Adeola Ayodele - Frontend web and mobile developer",
+        title: "Projects - Ajijola Adeola Ayodele",
         metaTags: [
           {
             name: "description",
@@ -57,8 +56,7 @@ const router = createRouter({
       name: "about",
       component: () => import("../views/AboutView.vue"),
       meta: {
-        title:
-          "About Me - Ajijola Adeola Ayodele - Frontend web and mobile developer",
+        title: "About - Ajijola Adeola Ayodele",
         metaTags: [
           {
             name: "description",
@@ -66,7 +64,7 @@ const router = createRouter({
               "Discover Ajijola Adeola Ayodele's passion, expertise in frontend mobile and web develoopment in general. From design prowess to coding finesse.",
           },
           {
-            Property: "og:description",
+            property: "og:description",
             content:
               "Discover Ajijola Adeola Ayodele's passion, expertise in frontend mobile and web develoopment in general. From design prowess to coding finesse.",
           },
@@ -78,8 +76,7 @@ const router = createRouter({
       name: "contact",
       component: () => import("../views/ContactView.vue"),
       meta: {
-        title:
-          "Get in touch - Ajijola Adeola Ayodele - Frontend web and mobile developer",
+        title: "Get in touch - Ajijola Adeola Ayodele",
         metaTags: [
           {
             name: "description",

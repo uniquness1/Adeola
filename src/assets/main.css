@@ -20,6 +20,7 @@ a {
 }
 .nav-links {
   position: relative;
+  z-index: 1;
 }
 
 .nav-links::before {
@@ -32,6 +33,7 @@ a {
   height: 0px;
   z-index: -1;
   transition: all 0.5s ease-in-out;
+  color: #121212;
 }
 
 .nav-links:hover::before {

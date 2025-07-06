@@ -8,7 +8,8 @@
       <div class="flex items-center gap-4">
         <nav class="md:flex items-center gap-4 hidden">
           <template v-for="link in navLinks" :key="link.text">
-            <router-link :to="link.to" class="text-base text-[#DAC5A7] font-normal capitalize px-1 nav-links">
+            <router-link :to="link.to"
+              class="text-base text-[#DAC5A7] hover:text-[#121212] font-normal capitalize px-1 nav-links">
               {{ link.text }}
             </router-link>
           </template>
