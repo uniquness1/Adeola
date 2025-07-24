@@ -39,7 +39,7 @@ import Arts from "@/assets/images/artsandvibes.webp";
 import Pixel from "@/assets/images/pixela.png";
 import PixelLms from "@/assets/images/lms.png"
 import Digital from "@/assets/images/roidigital.webp";
-import Newspoint from "@/assets/images/newspoint.png";
+import Newspoint from "@/assets/images/eagles.png";
 import oladokun from "@/assets/images/oladokun.png"
 import Hive from "@/assets/images/propertyhive.png";
 import Emterr from "@/assets/images/emteerr.png";
@@ -104,20 +104,20 @@ const projects = ref([
     name: "Uacfoods DMS",
     alt: "screenshot of uacfoods DMS App",
     imageUrl: uac,
-    websiteUrl: "https://dms.uacfoodsng.com/",
+    websiteUrl: "#",
     description:
       "The platform streamlines complex business operations, including distributor management",
     tag: ["Vue", "TailwindCSS"],
   },
-  // {
-  //   name: "Newspoint",
-  //   alt: "screenshot of newspoint website",
-  //   imageUrl: Newspoint,
-  //   websiteUrl: "https://newspoint-newsblog.netlify.app",
-  //   description:
-  //     "Newspoint is a practice newsblog website that provides latest news across all categories",
-  //   tag: ["Vue", "TailwindCSS"],
-  // },
+  {
+    name: "The Eagles Consulting",
+    alt: "screenshot of eagles consulting website",
+    imageUrl: Newspoint,
+    websiteUrl: "https://theeaglesconsulting.com.ng/",
+    description:
+      "Eagles Consulting is a leading Tech Consulting firm focused with helping SMEs achieve  efficiency",
+    tag: ["Wordpress", "Elementor", "ACF"],
+  },
   {
     name: "Pixel Anchor",
     alt: "screenshot of pixelanchor website",
