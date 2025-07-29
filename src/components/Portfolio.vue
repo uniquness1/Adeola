@@ -101,15 +101,6 @@ const projects = ref([
     tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
-    name: "Uacfoods DMS",
-    alt: "screenshot of uacfoods DMS App",
-    imageUrl: uac,
-    websiteUrl: "#",
-    description:
-      "The platform streamlines complex business operations, including distributor management",
-    tag: ["Vue", "TailwindCSS"],
-  },
-  {
     name: "The Eagles Consulting",
     alt: "screenshot of eagles consulting website",
     imageUrl: Newspoint,
