@@ -144,24 +144,15 @@ const projects = ref([
     description: "ROI Digital is a digital marketing agency in Lagos Nigeria",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
-  // {
-  //   name: "Arts and Vibes",
-  //   alt: "screenshot of arts and vibes website",
-  //   imageUrl: Arts,
-  //   websiteUrl: "https://artsandvibes.com",
-  //   description:
-  //     "Discover the vibrant and diverse arts and talents of Northern Nigeria on Arts and Vibes",
-  //   tag: ["Wordpress", "Elementor", "ACF"],
-  // },
-  // {
-  //   name: "PropertyHIVE",
-  //   alt: "screenshot of propertyHive Landing page",
-  //   imageUrl: Hive,
-  //   websiteUrl: "https://property-hive.vercel.app/",
-  //   description:
-  //     "PropertyHive landing page - a UI practice with Tailwindcss and darkmode exploration",
-  //   tag: ["Vue", "TailwindCSS"],
-  // },
+  {
+    name: "PropertyHIVE",
+    alt: "screenshot of propertyHive Landing page",
+    imageUrl: Hive,
+    websiteUrl: "https://property-hive.vercel.app/",
+    description:
+      "PropertyHive landing page - a UI practice with Tailwindcss and darkmode exploration",
+    tag: ["Vue", "TailwindCSS"],
+  },
   {
     name: "Stay2Easy Admin",
     alt: "screenshot of propertyHive Landing page",
