@@ -1,43 +1,78 @@
 <template>
-  <section class="max-w-2xl w-full mx-auto mt-40 mb-10 md:mb-24 px-2.5">
-    <h1 class="text-center text-[#DAC5A7] text-[42px] leading-[60px] md:text-[82px] font-normal md:leading-[100px]">
+  <section class="max-w-2xl w-full mx-auto mt-40 mb-4 px-2.5" id="projects">
+    <h2 class="text-center text-[#DAC5A7] text-5xl italic font-normal">
       Work Done
-    </h1>
+    </h2>
     <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-xl mx-auto">Crafting
       exceptional web and
       mobile
       experiences that
       is not just
       visually appealing but also easy to use</p>
-    <div class="w-full max-w-[200px] mx-auto mt-16 md:mt-24 text-center animate-pulse cursor-pointer">
-      <i
-        class="fas fa-arrow-down text-[#dac5a7] text-base border rounded-full border-[rgba(218,197,167,0.3)] py-1.5 px-3 bg-[rgb(26,26,26)] mr-2 "></i>
-      <span class="text-base md:text-xl font-light text-center text-[#dac5a7] max-w-xl mx-auto">My Projects</span>
-    </div>
   </section>
+
   <section>
-    <div class="max-w-6xl mx-auto px-4 py-5 sm:py-10 overflow-hidden">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 mb-5">
-        <ProjectCard v-for="(project, index) in displayedProjects" :key="index" :project="project" />
+    <div class="max-w-7xl mx-auto px-4 py-5 sm:py-10 overflow-hidden relative">
+      <div class="relative mb-8 overflow-hidden">
+        <div class="flex animate-scroll-right gap-6">
+          <div v-for="(project, index) in firstRowProjects" :key="`first-set1-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+          <div v-for="(project, index) in firstRowProjects" :key="`first-set2-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+          <div v-for="(project, index) in firstRowProjects" :key="`first-set3-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+        </div>
       </div>
-      <router-link v-if="showButton"
-        class="text-base max-w-max font-semibold uppercase px-4 py-1 text-white border-2border-white border-solid rounded-full md:block mb-5 button"
-        to="/projects" data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine">
-        View All Projects
-      </router-link>
+
+      <div class="relative mb-8 overflow-hidden">
+        <div class="flex animate-scroll-left gap-6">
+          <div v-for="(project, index) in secondRowProjects" :key="`second-set1-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+          <div v-for="(project, index) in secondRowProjects" :key="`second-set2-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+          <div v-for="(project, index) in secondRowProjects" :key="`second-set3-${index}`"
+            class="flex-shrink-0 w-80 md:w-96">
+            <ProjectCard :project="project" />
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center gap-4 mb-6">
+        <button @click="toggleAnimation" :class="[
+          'px-6 py-3 rounded-full border-2 transition-all duration-300 font-medium',
+          isAnimationPaused
+            ? 'bg-[#DAC5A7] text-black border-[#DAC5A7] hover:bg-white'
+            : 'text-[#DAC5A7] border-[#DAC5A7] bg-transparent hover:bg-[#DAC5A7] hover:text-black'
+        ]">
+          <i :class="isAnimationPaused ? 'fas fa-play' : 'fas fa-pause'" class="mr-2"></i>
+          {{ isAnimationPaused ? 'Resume' : 'Pause' }} Animation
+        </button>
+
+        <button @click="changeSpeed"
+          class="px-4 py-2 rounded-full text-[#DAC5A7] border border-[rgba(218,197,167,0.5)] hover:border-[#DAC5A7] hover:bg-[rgba(218,197,167,0.1)] transition-all duration-300">
+          Speed: {{ currentSpeedLabel }}
+        </button>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import ProjectCard from "./ProjectCard.vue";
 import TogaVision from "@/assets/images/togavision.webp";
 import EvolveHQ from "@/assets/images/evolvehq.webp";
 import Jaics from "@/assets/images/jaics.webp";
-import Arts from "@/assets/images/artsandvibes.webp";
 import Pixel from "@/assets/images/pixela.png";
-import PixelLms from "@/assets/images/lms.png"
 import Digital from "@/assets/images/roidigital.webp";
 import Newspoint from "@/assets/images/eagles.png";
 import oladokun from "@/assets/images/oladokun.png"
@@ -47,10 +82,7 @@ import WDC from "@/assets/images/wdc.png";
 import stay from "@/assets/images/stayeasy.png";
 import yemicci from "@/assets/images/yemicii.png"
 import uac from "@/assets/images/uacfoods.png"
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-AOS.init();
 
 const props = defineProps({
   displayCount: {
@@ -63,10 +95,19 @@ const props = defineProps({
   },
 });
 
+const isAnimationPaused = ref(false);
+const currentSpeed = ref(1);
+const speedOptions = [
+  { value: 0.5, label: 'Slow' },
+  { value: 1, label: 'Normal' },
+  { value: 2, label: 'Fast' }
+];
+const currentSpeedIndex = ref(1);
+
 const projects = ref([
   {
     name: "Yemicii",
-    alt: "screenshot of Yemicii ecommerce website",
+    alt: "screenshot of Yemicii cEommerce website",
     imageUrl: yemicci,
     websiteUrl: "https://yemicii.com",
     description:
@@ -83,13 +124,13 @@ const projects = ref([
     tag: ["Wordpress", "Elementor", "ACF"],
   },
   {
-    name: "Pixel Anchor LMS",
-    alt: "screenshot of pixelanchor website",
-    imageUrl: PixelLms,
-    websiteUrl: "https://pixelanchor.vercel.app",
+    name: "Uacfoods DMS",
+    alt: "screenshot of uacfood dms",
+    imageUrl: uac,
+    websiteUrl: "#",
     description:
-      "Building Pixelanchor next gen Educational Learning management software",
-    tag: ["NuxtJs", "Vuejs", "TailwindCSS"],
+      "Saas for Uacfoods: distributor management, sales, inventory, payment, receipt",
+    tag: ["VueJs", "Vuex", "TailwindCSS"],
   },
   {
     name: "The Oladokun Lab",
@@ -115,8 +156,8 @@ const projects = ref([
     imageUrl: Pixel,
     websiteUrl: "https://pixelanchor.com",
     description:
-      "Building Pixelanchor Educational Learning management software and also creating training pages",
-    tag: ["Vuejs", "TailwindCSS"],
+      "Building Pixelanchor Educational Learning management software(LMS)",
+    tag: ["Vuejs", "TailwindCSS", "Pinia", "Nuxtjs"],
   },
   {
     name: "Toga Vision",
@@ -127,15 +168,15 @@ const projects = ref([
       "Togavision is a non-profit organization dedicated to empowering artisans and building communities",
     tag: ["Vue Js", "TailwindCSS"],
   },
-  {
-    name: "Jaics Consulting",
-    alt: "screenshot of jaics consulting website",
-    imageUrl: Jaics,
-    websiteUrl: "https://jaicsconsulting.com",
-    description:
-      "Jaics Consulting Services is an Human resources firm in Lagos State that provides HR Solutions",
-    tag: ["Wordpress", "Elementor", "ACF"],
-  },
+  // {
+  //   name: "Jaics Consulting",
+  //   alt: "screenshot of jaics consulting website",
+  //   imageUrl: Jaics,
+  //   websiteUrl: "https://jaicsconsulting.com",
+  //   description:
+  //     "Jaics Consulting Services is an Human resources firm in Lagos State that provides HR Solutions",
+  //   tag: ["Wordpress", "Elementor", "ACF"],
+  // },
   {
     name: "Roi Digital",
     alt: "screenshot of roi digital website",
@@ -171,15 +212,15 @@ const projects = ref([
       "Website Redesign to ensure good UIUX, maintaining simplicity & performance",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
-  {
-    name: "Emeterr",
-    alt: "screenshot of Emeterr Landing page",
-    imageUrl: Emterr,
-    websiteUrl: "https://www.emeterr.com/",
-    description:
-      "Providing cutting-edge educational solutions for a diverse audience",
-    tag: ["Nuxt", "Vue", "Vuetify"],
-  },
+  // {
+  //   name: "Emeterr",
+  //   alt: "screenshot of Emeterr Landing page",
+  //   imageUrl: Emterr,
+  //   websiteUrl: "https://www.emeterr.com/",
+  //   description:
+  //     "Providing cutting-edge educational solutions for a diverse audience",
+  //   tag: ["Nuxt", "Vue", "Vuetify"],
+  // },
 ]);
 
 const displayedProjects = computed(() => {
@@ -188,4 +229,100 @@ const displayedProjects = computed(() => {
   }
   return projects.value;
 });
+
+const firstRowProjects = computed(() => {
+  const projects = displayedProjects.value;
+  const half = Math.ceil(projects.length / 2);
+  return projects.slice(0, half);
+});
+
+const secondRowProjects = computed(() => {
+  const projects = displayedProjects.value;
+  const half = Math.ceil(projects.length / 2);
+  return projects.slice(half);
+});
+
+const currentSpeedLabel = computed(() => {
+  return speedOptions[currentSpeedIndex.value].label;
+});
+
+const toggleAnimation = () => {
+  isAnimationPaused.value = !isAnimationPaused.value;
+  updateAnimationState();
+};
+
+const changeSpeed = () => {
+  currentSpeedIndex.value = (currentSpeedIndex.value + 1) % speedOptions.length;
+  currentSpeed.value = speedOptions[currentSpeedIndex.value].value;
+  updateAnimationState();
+};
+
+const updateAnimationState = () => {
+  const scrollElements = document.querySelectorAll('[class*="animate-scroll"]');
+  scrollElements.forEach(el => {
+    if (isAnimationPaused.value) {
+      el.style.animationPlayState = 'paused';
+    } else {
+      el.style.animationPlayState = 'running';
+      const duration = 30 / currentSpeed.value;
+      el.style.animationDuration = `${duration}s`;
+    }
+  });
+};
+
+onMounted(() => {
+  updateAnimationState();
+});
 </script>
+
+<style scoped>
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-33.33%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 25s linear infinite;
+  width: max-content;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 25s linear infinite;
+  width: max-content;
+}
+
+.animate-scroll-right:hover,
+.animate-scroll-left:hover,
+.animate-scroll-right-slow:hover {
+  animation-play-state: paused;
+}
+
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 197, 167, 0.3);
+}
+
+* {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+</style>

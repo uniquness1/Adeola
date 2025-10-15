@@ -1,23 +1,49 @@
 <template>
-  <section class="relative max-w-2xl w-full mx-auto mt-40 mb-10 md:mb-24 px-2.5">
-    <h1 class="text-center text-[#DAC5A7] text-[42px] leading-[60px] md:text-[82px] font-normal md:leading-[100px]">
-      Crafting Digital 
-  Experiences
+
+  <section class="relative max-w-3xl w-full mx-auto mt-48 mb-32 px-2.5">
+    <h1
+      class="text-center text-[#DAC5A7] text-[42px] leading-[60px] md:text-[82px] font-normal md:leading-[100px] italic">
+      Crafting Digital Experiences
     </h1>
-    <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-xl mx-auto">Crafting
-      exceptional web and
-      mobile
-      experiences that
-      is not just
-      visually appealing but also easy to use</p>
-    <div class="w-full max-w-[200px] mx-auto mt-16 md:mt-24 text-center animate-pulse cursor-pointer">
-      <i
-        class="fas fa-arrow-down text-[#dac5a7] text-base border rounded-full border-[rgba(218,197,167,0.3)] py-1.5 px-3 bg-[rgb(26,26,26)] mr-2 "></i>
-      <span class="text-base md:text-xl font-light text-center text-[#dac5a7] max-w-xl mx-auto">My
-        Services</span>
+    <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-7xl mx-auto">
+      Building modern web applications. Specialized in creating
+      <span class="font-normal">high-performance</span>,
+      <span class="font-normal">accessible</span>, and
+      <span class="font-normal">SEO-friendly</span> solutions that drive results.
+    </p>
+
+    <div class="w-full max-w-[400px] mx-auto mt-6 text-center">
+      <span class="text-[#dac5a7] text-2xl font-light italic transition-all duration-700 ease-in-out inline-block"
+        :class="{
+          'opacity-0 -translate-y-4': isFading,
+          'opacity-100 translate-y-0': !isFading
+        }" :aria-live="'polite'">
+        {{ displayText }}
+      </span>
+      <noscript>
+        <ul class="sr-only">
+          <li v-for="text in textArray" :key="text">{{ text }}</li>
+        </ul>
+      </noscript>
+    </div>
+
+    <div class="sr-only">
+      <h2>Web Development Services</h2>
+      <ul>
+        <li>Frontend Development with Vue.js Nuxt.js</li>
+        <li>Backend Development with Node.js, Express.js Laravel, PHP</li>
+        <li>Wordpress Developer</li>
+        <li>Responsive Web Design</li>
+        <li>Performance Optimization</li>
+        <li>SEO Implementation</li>
+      </ul>
     </div>
   </section>
-
+  <section class="max-w-2xl w-full mx-auto mb-10 md:mb-20 px-2.5" id="about">
+    <h2 class="text-center text-[#DAC5A7] text-5xl italic font-normal">
+      Services
+    </h2>
+  </section>
   <section id="services"
     class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10 max-w-7xl w-full mx-auto px-5 2xl:px-0">
     <div v-for="service in services" :key="service.id"
@@ -30,6 +56,30 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const textArray = [
+  "Lightning Fast ⚡",
+  "Mobile-First 📱",
+  "SEO Optimized 🚀",
+  "Accessible ♿",
+  "Performance Driven 💪",
+  "User-Centric 🎯"
+]
+
+const displayText = ref(textArray[0])
+const currentIndex = ref(0)
+const isFading = ref(false)
+let intervalId = null
+
+const animateText = () => {
+  isFading.value = true
+  setTimeout(() => {
+    currentIndex.value = (currentIndex.value + 1) % textArray.length
+    displayText.value = textArray[currentIndex.value]
+    isFading.value = false
+  }, 700)
+}
 const services = [
   {
     id: '01',
@@ -38,13 +88,51 @@ const services = [
   },
   {
     id: '02',
-    title: 'Fullstack Development',
-    description: 'Complete web applications with Vue.js/Nuxt.js frontend, Express.js APIs, and Laravel backend. Modern, scalable solutions.'
+    title: 'Frontend Development',
+    description: 'Responsive user interfaces with HTML, CSS, JS, Vue.js, Nuxt.js, Tailwid. Clean code, and pixel-perfect designs.'
   },
   {
     id: '03',
-    title: 'Mobile Development',
-    description: 'Cross-platform mobile applications built with Flutter. Native performance with single codebase for iOS and Android.'
+    title: 'Backend Development',
+    description: 'Robust server-side solutions with Node.js Express.js PHP, and Laravel. Secure APIs, database design, and scalable architecture.'
+  },
+  {
+    id: '04',
+    title: 'Website Maintenance',
+    description: 'Ongoing support, updates, and optimization. Regular backups, security monitoring, and performance improvements to keep your site running smoothly.'
+  },
+  {
+    id: '05',
+    title: 'E-commerce Development',
+    description: 'Fully functional online stores with WooCommerce, or custom solutions. Secure payments and inventory management.'
+  },
+  {
+    id: '06',
+    title: 'API Development & Integration',
+    description: 'Custom REST APIs and third-party integrations. Connect your website with payment gateways, CRMs, and external services seamlessly.'
   }
 ]
+onMounted(() => {
+  intervalId = setInterval(animateText, 3500)
+})
+
+onUnmounted(() => {
+  if (intervalId) {
+    clearInterval(intervalId)
+  }
+})
 </script>
+
+<style scoped>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+</style>

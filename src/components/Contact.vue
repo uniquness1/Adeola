@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full">
+  <section class="w-full" id="contact">
     <div
       class="w-full mx-auto flex items-center justify-between py-5 border-[0.5px] border-[rgba(218,197,167,0.3)] bg-[rgba(33,33,33,0.8)] backdrop-blur-md rounded-sm overflow-hidden">
       <div class="flex items-center animate-scroll whitespace-nowrap">
@@ -12,36 +12,44 @@
         </div>
       </div>
     </div>
-    <div class="mt-10 sm:mt-20 mb-20 md:mb-48 max-w-6xl mx-auto w-full text-center px-5">
-      <h3 class="text-[#dac5a7] text-center text-xl font-normal">Got a Project?</h3>
-      <h2
-        class="text-[#dac5a7] text-center xs:text-5xl sm:text-6xl md:text-8xl font-semibold max-w-[700px] mx-auto my-10">
+    <div class="mt-10 sm:mt-20 mb-20 max-w-6xl mx-auto w-full text-center px-5">
+      <h2 class="text-[#dac5a7] text-center text-xl font-normal">Got a Project?</h2>
+      <h3 class="text-center text-[#DAC5A7] text-5xl italic font-normal mb-10">
         Let's bring
         your project
         to
         live
-      </h2>
-      <p class="text-base md:text-2xl font-extralight text-center mt-4 text-[#dac5a7] max-w-xl mx-auto">Crafting
-        exceptional web and mobile experiences that is not just visually appealing but also easy to use</p>
-      <button class="bg-[rgb(218,197,167)] mt-10 py-3  px-10 text-[#121212] rounded">
-        <router-link to="/contact" class="text-xl font-medium tracking-widest capitalize">
-          Get in
-          Touch
-        </router-link>
-      </button>
+      </h3>
+      <section>
+        <div class="max-w-6xl w-full mx-auto px-4 py-5 overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-4 md:gap-10">
+            <ContactForm />
+            <div class="flex flex-col items-start gap-2 mt-2">
+              <h2 class="font-bold text-xl sm:text-2xl uppercase text-[#dac5a7]">
+                interested in working with me?
+              </h2>
+              <a class="text-[#dac5a7]" href="mailto:aajijola3@gmail.com">aajijola3@gmail.com</a>
+              <a class="text-[#dac5a7]" href="tel:+2349152931633">+2349152931633</a>
+              <a class="text-[#dac5a7]" href="tel:+2347065992188">+2347065992188</a>
+              <p class="text-[#dac5a7]">
+                Lagos State, Nigeria
+              </p>
+              <Socialmedia class="hidden md:flex" />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 </template>
 
 <script setup>
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { ref } from "vue";
+import ContactForm from "./ContactForm.vue";
+import Socialmedia from "./Socialmedia.vue";
 const scrollText = ref("Let's Talk");
 const starCount = ref(3);
 const repeatCount = ref(100);
-
-AOS.init();
 </script>
 
 <style scoped>

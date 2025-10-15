@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="SubmitNow" class="flex flex-col gap-4">
     <div>
-      <input data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="text" id="fullname"
-        placeholder="Enter your full name" v-model="fullname" @input="clearError('fullname')" @blur="validateFullname"
+      <input type="text" id="fullname" placeholder="Enter your full name" v-model="fullname"
+        @input="clearError('fullname')" @blur="validateFullname"
         class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]" />
       <p v-if="fullnameError" class="text-base text-red-500">
         {{ fullnameError }}
@@ -10,16 +10,15 @@
     </div>
 
     <div>
-      <input data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="email" id="email"
-        placeholder="Enter your email" v-model="email" @input="clearError('email')" @blur="validateEmailField"
+      <input type="email" id="email" placeholder="Enter your email" v-model="email" @input="clearError('email')"
+        @blur="validateEmailField"
         class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]" />
       <p v-if="emailError" class="text-base text-red-500">{{ emailError }}</p>
     </div>
 
     <div>
-      <textarea data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" id="message"
-        placeholder="Your message/services required" cols="30" rows="7" v-model="message" @input="clearError('message')"
-        @blur="validateMessage"
+      <textarea id="message" placeholder="Your message/services required" cols="30" rows="7" v-model="message"
+        @input="clearError('message')" @blur="validateMessage"
         class="bg-transparent text-[#dac5a7] border border-[#dac5a7] rounded-md py-2 px-4 text-wrap text-sm sm:text-base w-full placeholder:text-[#dac5a7]"></textarea>
       <p v-if="messageError" class="text-base text-red-500">
         {{ messageError }}
@@ -28,8 +27,7 @@
     <p v-if="successMessage" class="text-base text-green-500">
       {{ successMessage }}
     </p>
-    <button data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" type="button"
-      @click="SubmitNow" :disabled="loading"
+    <button type="button" @click="SubmitNow" :disabled="loading"
       class="text-xs sm:text-base font-semibold uppercase px-4 py-1 border-[#dac5a7] border border-[#dac5a7]] border-solid rounded-full md:block max-w-max button cursor-pointer text-[#dac5a7]"
       :class="{ 'cursor-not-allowed opacity-50': loading }">
       <span v-if="!loading">Submit Now</span>

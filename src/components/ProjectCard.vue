@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col justify-between">
     <img data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" :src="project.imageUrl"
-      class="h-[180px] w-full rounded-md" :alt="project.alt" />
+      class="h-[180px]  w-full rounded-md" :alt="project.alt" />
     <h2 data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
       class="font-bold text-2xl uppercase text-[#dac5a7] my-2">
       <a :href="project.websiteUrl" target="_blank">{{ project.name }}</a>
     </h2>
-    <p data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="text-base text-[#dac5a7]">
+    <!-- <p data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="text-base text-[#dac5a7]">
       {{ project.description }}
-    </p>
+    </p> -->
     <div class="mt-2 flex flex-wrap items-center justify-start gap-2">
       <p data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
         v-for="(tag, index) in project.tag" :key="index"

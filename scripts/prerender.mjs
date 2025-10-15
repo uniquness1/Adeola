@@ -12,23 +12,36 @@ const __dirname = dirname(__filename);
 const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
 
 async function prerender() {
+  console.log("Building the application...");
+
   // First, build the app
   await build();
 
-  // Then prerender the routes
+  console.log("Build complete. Starting prerendering...");
+
+  // For a single-page app, you only need to prerender the root route
   const prerenderPlugin = new PrerenderSpaPlugin({
     staticDir: resolve(__dirname, "../dist"),
-    routes: ["/", "/about", "/projects", "/contact"],
+    routes: ["/"], // Only prerender the main page
     renderer: new Renderer({
-      inject: {
-        foo: "bar",
-      },
       headless: true,
-      renderAfterTime: 5000,
+      // Increase time to allow animations and content to load
+      renderAfterTime: 3000,
+      // Wait for content to be ready
+      renderAfterDocumentEvent: "render-event",
+      // Viewport settings for better rendering
+      viewport: {
+        width: 1920,
+        height: 1080,
+      },
     }),
   });
 
   await prerenderPlugin.apply();
+  console.log("Prerendering complete!");
 }
 
-prerender().catch(console.error);
+prerender().catch((error) => {
+  console.error("Prerendering failed:", error);
+  process.exit(1);
+});
