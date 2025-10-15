@@ -141,6 +141,15 @@ const projects = ref([
       "Advancing Poultry Health Through Cutting-edge Microbiome Research",
     tag: ["Wordpress", "Elementor", "ACF"],
   },
+    {
+    name: "UacFood DMS",
+    alt: "screenshot of Uacfoods dms",
+    imageUrl: uac,
+    websiteUrl: "https://dms.uacfoodsng.com/",
+    description:
+      "Advancing Poultry Health Through Cutting-edge Microbiome Research",
+    tag: ["Vuejs", "Tailwindcss", "Vuex"],
+  },
   {
     name: "The Eagles Consulting",
     alt: "screenshot of eagles consulting website",
