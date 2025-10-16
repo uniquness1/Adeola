@@ -109,7 +109,7 @@ onMounted(() => {
       </transition>
     </div>
   </header>
-  <main>
+  <main class="overflow-x-hidden">
     <Hero />
     <Tools />
     <Portfolio />

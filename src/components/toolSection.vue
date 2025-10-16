@@ -14,7 +14,7 @@
       <div>
         <p class="text-[#dac5a7] text-sm sm:text-base md:text-xl opacity-80 leading-relaxed"> Hi There, I'm Ajijola
           Adeola, a
-          Ful-stack Developer with a handful of
+          Full-stack Developer(Fronten-Heavy) with a handful of
           experience developing beautiful and easy-to-use websites and apps. I'm
           great with HTML, CSS, JavaScript, and using modern tools like
           VueJs, NuxtJs, and ExpressJs as well as content management systems(CMS)
