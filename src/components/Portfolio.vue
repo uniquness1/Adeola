@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-2xl w-full mx-auto mt-40 mb-4 px-2.5" id="projects">
+  <section class="max-w-2xl w-full mx-auto mt-20 md:mt-40 mb-4 px-2.5" id="projects">
     <h2 class="text-center text-[#DAC5A7] text-5xl italic font-normal">
       Work Done
     </h2>
@@ -46,19 +46,19 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center items-center gap-4 mb-6">
+      <div class="flex justify-center items-center gap-2 mb-6">
         <button @click="toggleAnimation" :class="[
-          'px-6 py-3 rounded-full border-2 transition-all duration-300 font-medium',
+          'px-5 py-2 rounded-full border transition-all duration-300 font-normal',
           isAnimationPaused
             ? 'bg-[#DAC5A7] text-black border-[#DAC5A7] hover:bg-white'
             : 'text-[#DAC5A7] border-[#DAC5A7] bg-transparent hover:bg-[#DAC5A7] hover:text-black'
         ]">
-          <i :class="isAnimationPaused ? 'fas fa-play' : 'fas fa-pause'" class="mr-2"></i>
+          <i :class="isAnimationPaused ? 'fas fa-play' : 'fas fa-pause'" class="mr-1"></i>
           {{ isAnimationPaused ? 'Resume' : 'Pause' }} Animation
         </button>
 
         <button @click="changeSpeed"
-          class="px-4 py-2 rounded-full text-[#DAC5A7] border border-[rgba(218,197,167,0.5)] hover:border-[#DAC5A7] hover:bg-[rgba(218,197,167,0.1)] transition-all duration-300">
+          class="px-5 py-2 rounded-full text-[#DAC5A7] border border-[rgba(218,197,167,0.5)] hover:border-[#DAC5A7] hover:bg-[rgba(218,197,167,0.1)] transition-all duration-300">
           Speed: {{ currentSpeedLabel }}
         </button>
       </div>

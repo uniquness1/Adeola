@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-10 sm:mt-20 mb-20 max-w-6xl mx-auto w-full text-center px-5">
+    <div class="mt-10 sm:mt-20 mb-20 max-w-6xl mx-auto w-full px-5">
       <h2 class="text-[#dac5a7] text-center text-xl font-normal">Got a Project?</h2>
       <h3 class="text-center text-[#DAC5A7] text-5xl italic font-normal mb-10">
         Let's bring

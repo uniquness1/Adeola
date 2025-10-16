@@ -12,7 +12,7 @@
     <div class="mt-2 flex flex-wrap items-center justify-start gap-2">
       <p data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-easing="ease-in-sine"
         v-for="(tag, index) in project.tag" :key="index"
-        class="text-xs max-w-max font-semibold uppercase px-4 py-1 text-[#dac5a7] border-2 border-[#dac5a7] border-solid rounded-full md:block mb-5">
+        class="text-xs max-w-max font-medium uppercase px-2 py-1 text-[#dac5a7] border border-[#dac5a7] border-solid rounded-full md:block mb-5">
         {{ tag }}
       </p>
     </div>

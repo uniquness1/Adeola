@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-2xl w-full mx-auto mt-10 md:mt-20 px-2.5" id="about">
+  <section class="max-w-2xl w-full mx-auto mt-20 md:mt-40 px-2.5" id="about">
     <h2 class="text-center text-[#DAC5A7] text-5xl italic font-normal">
       About Me
     </h2>
@@ -26,15 +26,33 @@
       </div>
     </div>
   </section>
-  <div class="w-full overflow-hidden mb-24">
+  <div class="w-full">
     <div class="flex gap-4 animate-scroll">
-      <div v-for="i in 10" :key="i" class="flex-shrink-0 w-64 h-48 md:w-80 md:h-64 rounded-lg overflow-hidden">
-        <img :src="`https://picsum.photos/400/300?random=${i}`" :alt="`Portfolio showcase ${i}`"
-          class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy" />
+      <div v-for="(image, i) in [...images, ...images]" :key="i"
+        class="flex-shrink-0 w-64 h-48 md:w-80 md:h-64 rounded-lg overflow-hidden">
+        <img :src="image" :alt="`Portfolio showcase ${i + 1}`"
+          class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 grayscale"
+          loading="lazy" />
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import ade from '@/assets/images/ade.jpeg'
+import ade1 from '@/assets/images/ade-1.jpg'
+import ade2 from '@/assets/images/ade-2.jpg'
+import ade3 from '@/assets/images/ade-3.jpg'
+import ade4 from '@/assets/images/ade-4.jpg'
+import ade5 from '@/assets/images/ade-5.jpg'
+import ade7 from '@/assets/images/ade-7.jpg'
+import ade8 from '@/assets/images/ade-8.jpeg'
+import ade6 from '@/assets/images/ade-6.jpg'
+import ade9 from '@/assets/images/ade-9.jpeg'
+
+const images = [ade, ade1, ade2, ade3, ade4, ade5, ade7, ade8, ade6, ade9]
+</script>
+
 <style scoped>
 @keyframes scroll {
   0% {

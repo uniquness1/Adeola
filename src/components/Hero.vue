@@ -1,6 +1,6 @@
 <template>
 
-  <section class="relative max-w-3xl w-full mx-auto mt-48 mb-32 px-2.5">
+  <section class="relative max-w-3xl w-full mx-auto mt-48 mb-20 md:mb-40 px-2.5">
     <h1
       class="text-center text-[#DAC5A7] text-[42px] leading-[60px] md:text-[82px] font-normal md:leading-[100px] italic">
       Crafting Digital Experiences
@@ -39,7 +39,7 @@
       </ul>
     </div>
   </section>
-  <section class="max-w-2xl w-full mx-auto mb-10 md:mb-20 px-2.5" id="about">
+  <section class="max-w-2xl w-full mx-auto mb-10 px-2.5" id="about">
     <h2 class="text-center text-[#DAC5A7] text-5xl italic font-normal">
       Services
     </h2>
